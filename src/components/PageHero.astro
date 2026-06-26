@@ -6,11 +6,13 @@ interface Props {
   title: string;
   lede?: string;
   image: string;
+  /** background-position, e.g. "center", "center 25%", "center top" */
+  focus?: string;
 }
-const { eyebrow, title, lede, image } = Astro.props;
+const { eyebrow, title, lede, image, focus = 'center' } = Astro.props;
 const img = href(image);
 ---
-<section class="phero" style={`--img: url('${img}')`}>
+<section class="phero" style={`--img: url('${img}'); --focus: ${focus}`}>
   <Container>
     <div class="phero__inner">
       {eyebrow && <p class="phero__eyebrow">{eyebrow}</p>}
@@ -32,7 +34,7 @@ const img = href(image);
       linear-gradient(90deg, rgba(9, 18, 40, 0.5) 0%, rgba(9, 18, 40, 0.1) 60%),
       var(--img);
     background-size: cover;
-    background-position: center;
+    background-position: var(--focus, center);
   }
   .phero__inner {
     padding: clamp(36px, 6vh, 72px) 0;
