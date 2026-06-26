@@ -1,23 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Container from '../components/Container.astro';
-import PageHeader from '../components/PageHeader.astro';
+import PageHero from '../components/PageHero.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import BoardMemberCard from '../components/BoardMemberCard.astro';
-import { href } from '../lib/url';
 import { getBoardMembers, getTeamMembers } from '../lib/board';
 const board = await getBoardMembers();
 const team = await getTeamMembers();
 ---
-<BaseLayout title="Board & Team" description="The people who lead the Netherlands Business Council UAE: its board of directors and the team that runs the council day to day.">
-  <PageHeader
+<BaseLayout navMode="overlay" title="Board & Team" description="The people who lead the Netherlands Business Council UAE: its board of directors and the team that runs the council day to day.">
+  <PageHero
     eyebrow="Board & team"
     title='The people behind <span class="serif">the council.</span>'
     lede="NBC is led by a volunteer board of directors, supported by a small team that runs the council day to day."
+    image="/images/board-hero.jpg"
+    focus="center 28%"
   />
-  <figure class="board-banner">
-    <img src={href('/images/board-hero.jpg')} alt="NBC board and team members at a council event" loading="lazy" width="1800" height="716" />
-  </figure>
 
   <section class="people">
     <Container>
@@ -39,14 +37,6 @@ const team = await getTeamMembers();
 </BaseLayout>
 
 <style>
-  .board-banner { margin: 0; }
-  .board-banner img {
-    width: 100%;
-    height: clamp(240px, 36vw, 440px);
-    object-fit: cover;
-    object-position: center 30%;
-    display: block;
-  }
   .people { padding: clamp(48px, 7vw, 90px) 0; }
   .people--alt { background: var(--paper); border-top: 1px solid var(--hairline); }
   .grid {
