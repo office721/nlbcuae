@@ -1,0 +1,2031 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Netherlands Business Council UAE — Brand Guidelines</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root {
+  --orange: #FF9B00;
+  --blue: #22478B;
+  --red: #AD1E26;
+  --white: #FFFFFF;
+  --ink: #141414;
+  --paper: #FAF8F5;
+  --grey-400: #8B8B8B;
+  --grey-200: #D8D8D8;
+  --grey-100: #EDEDED;
+  --hairline: rgba(20, 20, 20, 0.08);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Geist', system-ui, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.serif {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+}
+
+/* ============ Section pattern ============ */
+section {
+  padding: 120px 80px;
+  border-bottom: 1px solid var(--hairline);
+  position: relative;
+}
+
+.section-grid {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-meta {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 60px;
+  align-self: start;
+}
+
+.section-number {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 64px;
+  line-height: 1;
+  color: var(--orange);
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+.section-label {
+  font-size: 11px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--grey-400);
+  font-weight: 500;
+}
+
+.section-content {
+  max-width: 880px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--grey-400);
+  font-weight: 500;
+  margin-bottom: 32px;
+}
+
+h1.display {
+  font-family: 'Geist', sans-serif;
+  font-size: clamp(56px, 7vw, 96px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -2.5px;
+  color: var(--ink);
+  margin-bottom: 40px;
+}
+
+h2.title {
+  font-size: clamp(40px, 4vw, 56px);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -1.2px;
+  color: var(--ink);
+  margin-bottom: 32px;
+}
+
+h3.subtitle {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 16px;
+  margin-top: 48px;
+}
+
+p.lede {
+  font-size: 24px;
+  line-height: 1.4;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 32px;
+  max-width: 720px;
+}
+
+p {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+  margin-bottom: 20px;
+  max-width: 680px;
+}
+
+p.small {
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--grey-400);
+}
+
+a {
+  color: var(--blue);
+  text-decoration: none;
+  border-bottom: 1px solid var(--blue);
+}
+
+/* ============ Cover ============ */
+.cover {
+  min-height: 100vh;
+  padding: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: var(--paper);
+  border-bottom: 1px solid var(--hairline);
+}
+
+.cover-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-size: 12px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--grey-400);
+  font-weight: 500;
+}
+
+.cover-middle {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+  align-items: flex-start;
+}
+
+.cover-title {
+  font-family: 'Geist', sans-serif;
+  font-size: clamp(64px, 9vw, 128px);
+  font-weight: 500;
+  line-height: 0.92;
+  letter-spacing: -3px;
+  color: var(--ink);
+  max-width: 1100px;
+}
+
+.cover-title em {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--orange);
+}
+
+.cover-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.cover-version {
+  font-size: 12px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--grey-400);
+  font-weight: 500;
+}
+
+/* ============ Contents ============ */
+.contents-list {
+  margin-top: 48px;
+}
+
+.contents-item {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  align-items: baseline;
+  padding: 20px 0;
+  border-top: 1px solid var(--hairline);
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--ink);
+}
+
+.contents-item:last-child {
+  border-bottom: 1px solid var(--hairline);
+}
+
+.contents-num {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--orange);
+}
+
+.contents-title {
+  letter-spacing: -0.2px;
+}
+
+.contents-page {
+  font-size: 14px;
+  color: var(--grey-400);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============ Pillars grid ============ */
+.pillars {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 48px 64px;
+  margin-top: 48px;
+}
+
+.pillar {
+  border-top: 2px solid var(--ink);
+  padding-top: 24px;
+}
+
+.pillar-num {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--orange);
+  margin-bottom: 12px;
+}
+
+.pillar-name {
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  margin-bottom: 12px;
+}
+
+.pillar-desc {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+/* ============ Tone of Voice ============ */
+.voice-attrs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 32px 0 56px 0;
+  max-width: 720px;
+}
+
+.voice-attr {
+  padding: 20px 24px;
+  border: 1px solid var(--hairline);
+  background: var(--white);
+}
+
+.voice-attr-yes {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.voice-attr-no {
+  font-size: 14px;
+  color: var(--grey-400);
+}
+
+.voice-examples {
+  margin-top: 56px;
+}
+
+.voice-example {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  padding: 32px 0;
+  border-top: 1px solid var(--hairline);
+}
+
+.voice-example:last-child {
+  border-bottom: 1px solid var(--hairline);
+}
+
+.voice-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.voice-tag {
+  font-size: 11px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.voice-tag.bad { color: var(--red); }
+.voice-tag.good { color: var(--blue); }
+
+.voice-text {
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.voice-text.bad {
+  color: var(--grey-400);
+  text-decoration: line-through;
+  text-decoration-color: var(--red);
+  text-decoration-thickness: 1px;
+}
+
+/* ============ Logo display ============ */
+.logo-display {
+  background: var(--white);
+  border: 1px solid var(--hairline);
+  padding: 80px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px 0;
+  min-height: 320px;
+}
+
+.logo-display.dark {
+  background: var(--blue);
+}
+
+.logo-display.large {
+  min-height: 480px;
+}
+
+.logo-display.tight {
+  padding: 48px 32px;
+  min-height: 200px;
+}
+
+/* ============ Variant grid ============ */
+.variants-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin: 40px 0;
+}
+
+.variant-cell {
+  display: flex;
+  flex-direction: column;
+}
+
+.variant-preview {
+  border: 1px solid var(--hairline);
+  padding: 40px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 220px;
+  margin-bottom: 12px;
+}
+
+.variant-preview.dark { background: var(--blue); }
+.variant-preview.black { background: #0A0A0A; }
+.variant-preview.light { background: var(--white); }
+
+.variant-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.variant-desc {
+  font-size: 13px;
+  color: var(--grey-400);
+}
+
+/* ============ Construction annotated ============ */
+.construction {
+  background: var(--white);
+  border: 1px solid var(--hairline);
+  padding: 60px;
+  margin: 40px 0;
+}
+
+.construction-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.construction-label {
+  font-size: 12px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--grey-400);
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.construction-explainer {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.construction-explainer + .construction-explainer {
+  margin-top: 16px;
+}
+
+/* ============ Donts ============ */
+.donts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.dont {
+  border: 1px solid var(--hairline);
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+}
+
+.dont-preview {
+  padding: 32px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 140px;
+  position: relative;
+  overflow: hidden;
+}
+
+.dont-cross::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 8px;
+  right: 8px;
+  height: 1px;
+  background: var(--red);
+  transform: rotate(-12deg);
+  transform-origin: center;
+  z-index: 2;
+}
+
+.dont-label {
+  padding: 16px 20px;
+  border-top: 1px solid var(--hairline);
+  font-size: 13px;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+/* ============ Colour swatches ============ */
+.swatch-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin: 40px 0;
+}
+
+.swatch {
+  display: flex;
+  flex-direction: column;
+  height: 280px;
+  border-radius: 0;
+  overflow: hidden;
+  border: 1px solid var(--hairline);
+}
+
+.swatch-color {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+}
+
+.swatch-name {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.4px;
+  color: inherit;
+}
+
+.swatch-info {
+  background: var(--white);
+  padding: 20px 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 24px;
+  font-size: 13px;
+  border-top: 1px solid var(--hairline);
+}
+
+.swatch-row {
+  display: flex;
+  justify-content: space-between;
+  font-variant-numeric: tabular-nums;
+}
+
+.swatch-row-label {
+  color: var(--grey-400);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.swatch-row-value {
+  font-weight: 500;
+  color: var(--ink);
+  font-size: 13px;
+}
+
+/* ============ Proportions bar ============ */
+.proportions {
+  margin: 40px 0;
+}
+
+.proportions-bar {
+  display: flex;
+  height: 80px;
+  border: 1px solid var(--hairline);
+}
+
+.proportion-segment {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.proportions-legend {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.proportion-leg {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.proportion-pct {
+  font-family: 'Geist', sans-serif;
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -1px;
+  line-height: 1;
+}
+
+.proportion-name {
+  font-size: 12px;
+  color: var(--grey-400);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* ============ Type specimens ============ */
+.type-specimen {
+  background: var(--white);
+  border: 1px solid var(--hairline);
+  padding: 64px;
+  margin: 40px 0;
+}
+
+.type-glyph {
+  font-size: 240px;
+  font-weight: 500;
+  line-height: 0.85;
+  letter-spacing: -10px;
+  color: var(--ink);
+  margin-bottom: 32px;
+}
+
+.type-glyph.serif {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  letter-spacing: -4px;
+  font-weight: 400;
+  color: var(--orange);
+}
+
+.type-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--hairline);
+}
+
+.type-info-block .type-info-label {
+  font-size: 11px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--grey-400);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.type-info-value {
+  font-size: 16px;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.type-weights {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.type-weight-line {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  align-items: baseline;
+  gap: 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.type-weight-label {
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--grey-400);
+  font-weight: 500;
+}
+
+.type-weight-sample {
+  font-size: 28px;
+  letter-spacing: -0.4px;
+  color: var(--ink);
+}
+
+/* ============ Hierarchy specimen ============ */
+.hierarchy {
+  background: var(--white);
+  border: 1px solid var(--hairline);
+  padding: 64px;
+  margin: 40px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.hier-row {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  align-items: baseline;
+  gap: 32px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.hier-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.hier-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hier-name {
+  font-size: 11px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--grey-400);
+  font-weight: 500;
+}
+
+.hier-specs {
+  font-size: 12px;
+  color: var(--grey-400);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ============ Applications ============ */
+.app-card {
+  background: var(--white);
+  border: 1px solid var(--hairline);
+  padding: 48px;
+  margin: 40px 0;
+}
+
+.email-sig {
+  font-family: 'Geist', sans-serif;
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 24px;
+  background: var(--paper);
+  border-left: 3px solid var(--orange);
+  max-width: 600px;
+}
+
+.email-sig-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 13px;
+  color: var(--ink);
+}
+
+.email-sig-name {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.email-sig-meta {
+  color: var(--grey-400);
+}
+
+/* ============ Footer ============ */
+footer {
+  padding: 80px;
+  background: var(--blue);
+  color: var(--white);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 64px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footer-label {
+  font-size: 11px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.footer-body {
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--white);
+}
+
+.footer-body a {
+  color: var(--orange);
+  border-bottom: 1px solid var(--orange);
+}
+
+/* ============ Pull quote ============ */
+.pullquote {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: clamp(36px, 4.5vw, 64px);
+  line-height: 1.15;
+  letter-spacing: -1px;
+  color: var(--ink);
+  margin: 56px 0;
+  font-weight: 400;
+  max-width: 900px;
+}
+
+.pullquote-attr {
+  font-family: 'Geist', sans-serif;
+  font-style: normal;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--grey-400);
+  margin-top: 24px;
+  font-weight: 500;
+}
+
+/* ============ Annotation callouts ============ */
+.callout {
+  margin: 32px 0;
+  padding: 24px 28px;
+  border-left: 3px solid var(--orange);
+  background: var(--white);
+  font-size: 16px;
+  line-height: 1.55;
+  max-width: 680px;
+}
+
+.callout strong {
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* ============ Lists ============ */
+ul.clean, ol.clean {
+  margin: 16px 0 20px 0;
+  padding: 0;
+  list-style: none;
+  max-width: 680px;
+}
+
+ul.clean li, ol.clean li {
+  padding: 12px 0;
+  border-top: 1px solid var(--hairline);
+  font-size: 17px;
+  line-height: 1.5;
+  position: relative;
+  padding-left: 28px;
+}
+
+ul.clean li:last-child, ol.clean li:last-child {
+  border-bottom: 1px solid var(--hairline);
+}
+
+ul.clean li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--orange);
+}
+
+ol.clean {
+  counter-reset: list;
+}
+
+ol.clean li::before {
+  counter-increment: list;
+  content: counter(list, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  color: var(--orange);
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+  font-size: 18px;
+}
+
+/* ============ Anchored contents ============ */
+section[id] {
+  scroll-margin-top: 40px;
+}
+
+a.contents-item {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: none;
+  cursor: pointer;
+  transition: padding-left 0.2s ease;
+}
+
+a.contents-item:hover {
+  padding-left: 12px;
+}
+
+a.contents-item:hover .contents-title {
+  color: var(--orange);
+}
+
+a.contents-item:hover .contents-num {
+  color: var(--blue);
+}
+
+/* ============ Responsive ============ */
+@media (max-width: 900px) {
+  section { padding: 80px 40px; }
+  .section-grid { grid-template-columns: 1fr; gap: 40px; }
+  .section-meta { position: static; }
+  .cover { padding: 40px; }
+  .pillars, .swatch-grid, .voice-attrs, .voice-example { grid-template-columns: 1fr; }
+  .donts { grid-template-columns: 1fr; }
+  .variants-grid { grid-template-columns: 1fr; }
+  .type-info { grid-template-columns: 1fr; }
+  .type-glyph { font-size: 140px; }
+  .construction-row { grid-template-columns: 1fr; }
+  .proportions-legend { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .hier-row { grid-template-columns: 1fr; }
+}
+
+/* ============ Print ============ */
+@media print {
+  body { background: var(--white); }
+  section { page-break-after: always; padding: 60px; }
+  .cover { page-break-after: always; }
+  .section-meta { position: static; }
+}
+</style>
+</head>
+<body>
+
+<!-- ================ COVER ================ -->
+<section class="cover">
+  <div class="cover-top">
+    <span>Netherlands Business Council UAE</span>
+    <span>Brand Guidelines</span>
+  </div>
+
+  <div class="cover-middle">
+    <svg width="240" viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg" aria-label="NBC logo">
+      <g fill="#FF9B00">
+        <g transform="translate(20, 50)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+        <g transform="translate(70, 42)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+        <g transform="translate(120, 34)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+      </g>
+    </svg>
+
+    <h1 class="cover-title">
+      The way we look, sound, <em>and behave.</em>
+    </h1>
+  </div>
+
+  <div class="cover-bottom">
+    <span class="cover-version">Version 1.0 — 2026</span>
+    <span class="cover-version">Internal & Partner Use</span>
+  </div>
+</section>
+
+<!-- ================ 01. CONTENTS ================ -->
+<section>
+  <div class="section-grid">
+    <div class="section-meta">
+      <div class="section-number"><em>00</em></div>
+      <div class="section-label">Contents</div>
+    </div>
+
+    <div class="section-content">
+      <h2 class="title">What's inside</h2>
+      <p class="lede">A practical guide to the visual and verbal identity of the Netherlands Business Council UAE, written so that anyone, members, staff, designers, partners, can apply the brand correctly without ringing the office.</p>
+
+      <div class="contents-list">
+        <a class="contents-item" href="#who-we-are"><span class="contents-num"><em>01</em></span><span class="contents-title">Who we are</span><span class="contents-page">—</span></a>
+        <a class="contents-item" href="#vision"><span class="contents-num"><em>02</em></span><span class="contents-title">Vision</span><span class="contents-page">—</span></a>
+        <a class="contents-item" href="#mission"><span class="contents-num"><em>03</em></span><span class="contents-title">Mission</span><span class="contents-page">—</span></a>
+        <a class="contents-item" href="#pillars"><span class="contents-num"><em>04</em></span><span class="contents-title">Brand pillars</span><span class="contents-page">—</span></a>
+        <a class="contents-item" href="#tone"><span class="contents-num"><em>05</em></span><span class="contents-title">Tone of voice</span><span class="contents-page">—</span></a>
+        <a class="contents-item" href="#mark"><span class="contents-num"><em>06</em></span><span class="contents-title">The mark</span><span class="contents-page">—</span></a>
+        <a class="contents-item" href="#construction"><span class="contents-num"><em>07</em></span><span class="contents-title">Construction & rationale</span><span class="contents-page">—</span></a>
+        <a class="contents-item" href="#variants"><span class="contents-num"><em>08</em></span><span class="contents-title">Logo variants</span><span class="contents-page">—</span></a>
+        <a class="contents-item" href="#member-badge"><span class="contents-num"><em>09</em></span><span class="contents-title">Member badge</span><span class="contents-page">—</span></a>
+        <a class="contents-item" href="#clear-space"><span class="contents-num"><em>10</em></span><span class="contents-title">Clear space & sizing</span><span class="contents-page">—</span></a>
+        <a class="contents-item" href="#donts"><span class="contents-num"><em>11</em></span><span class="contents-title">What not to do</span><span class="contents-page">—</span></a>
+        <a class="contents-item" href="#colour"><span class="contents-num"><em>12</em></span><span class="contents-title">Colour palette</span><span class="contents-page">—</span></a>
+        <a class="contents-item" href="#proportions"><span class="contents-num"><em>13</em></span><span class="contents-title">Colour proportions</span><span class="contents-page">—</span></a>
+        <a class="contents-item" href="#typography"><span class="contents-num"><em>14</em></span><span class="contents-title">Typography</span><span class="contents-page">—</span></a>
+        <a class="contents-item" href="#hierarchy"><span class="contents-num"><em>15</em></span><span class="contents-title">Type hierarchy</span><span class="contents-page">—</span></a>
+        <a class="contents-item" href="#applications"><span class="contents-num"><em>16</em></span><span class="contents-title">Applications</span><span class="contents-page">—</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================ 01. WHO WE ARE ================ -->
+<section id="who-we-are">
+  <div class="section-grid">
+    <div class="section-meta">
+      <div class="section-number"><em>01</em></div>
+      <div class="section-label">Who we are</div>
+    </div>
+
+    <div class="section-content">
+      <h2 class="title">A council twenty-five years in the making.</h2>
+      <p class="lede">The Netherlands Business Council UAE has connected Dutch enterprise with the United Arab Emirates since 2000. We are a non-profit, member-led organisation working alongside the Dutch Consul General in Dubai and Dubai Chambers.</p>
+
+      <p>Our members include some of the most recognised Dutch companies operating in the region, Boskalis, FrieslandCampina, ING, KLM, Philips, Shell, Unilever, Van Oord, alongside hundreds of small and medium businesses building their UAE presence.</p>
+
+      <p>This document is the codification of how that twenty-five-year-old council looks, sounds, and behaves on every surface where it appears.</p>
+
+      <div class="pullquote">
+        We connect people and knowledge between two business cultures.
+        <div class="pullquote-attr">The council, in one sentence</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================ 02. VISION ================ -->
+<section id="vision">
+  <div class="section-grid">
+    <div class="section-meta">
+      <div class="section-number"><em>02</em></div>
+      <div class="section-label">Vision</div>
+    </div>
+
+    <div class="section-content">
+      <h2 class="title">Where we are going.</h2>
+      <p class="lede">A future where Dutch enterprise and the United Arab Emirates operate as one connected economic community, sharing knowledge, talent, and trust across two continents.</p>
+
+      <p>The vision is not a finish line. It is the direction we point every event, every introduction, every advocacy conversation, and every member service in. If a decision moves us closer to that future, it is the right decision. If it does not, we reconsider.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================ 03. MISSION ================ -->
+<section id="mission">
+  <div class="section-grid">
+    <div class="section-meta">
+      <div class="section-number"><em>03</em></div>
+      <div class="section-label">Mission</div>
+    </div>
+
+    <div class="section-content">
+      <h2 class="title">What we do, every day.</h2>
+      <p class="lede">We make doing business between the Netherlands and the UAE easier, faster, and more successful, for our members and the wider Dutch business community.</p>
+
+      <p>We do this through four concrete activities:</p>
+
+      <ol class="clean">
+        <li>Convening members through events, networking, and dedicated working groups.</li>
+        <li>Sharing market knowledge through publications, government briefings, and business insights.</li>
+        <li>Representing Dutch business interests to UAE authorities, Dutch government, and partner councils.</li>
+        <li>Recognising excellence through our Business Awards and member spotlights.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ================ 04. BRAND PILLARS ================ -->
+<section id="pillars">
+  <div class="section-grid">
+    <div class="section-meta">
+      <div class="section-number"><em>04</em></div>
+      <div class="section-label">Brand pillars</div>
+    </div>
+
+    <div class="section-content">
+      <h2 class="title">Four words we will not compromise on.</h2>
+      <p class="lede">Every NBC activity, communication, and decision should test against these four pillars. If something does not advance at least one of them, it does not belong in the calendar.</p>
+
+      <div class="pillars">
+        <div class="pillar">
+          <div class="pillar-num"><em>01</em></div>
+          <div class="pillar-name">Connection</div>
+          <div class="pillar-desc">We bring the right people into the same room. Our value lives in the relationships that form because of NBC.</div>
+        </div>
+
+        <div class="pillar">
+          <div class="pillar-num"><em>02</em></div>
+          <div class="pillar-name">Knowledge</div>
+          <div class="pillar-desc">We share what we know about the UAE market, regulation, opportunity, with members who need it before they hit obstacles.</div>
+        </div>
+
+        <div class="pillar">
+          <div class="pillar-num"><em>03</em></div>
+          <div class="pillar-name">Advocacy</div>
+          <div class="pillar-desc">We speak for Dutch business interests with local authorities, the Dutch government, and partner organisations. Members do not lobby alone.</div>
+        </div>
+
+        <div class="pillar">
+          <div class="pillar-num"><em>04</em></div>
+          <div class="pillar-name">Excellence</div>
+          <div class="pillar-desc">We hold a high standard for the work our members do, and the work we do for them. Mediocrity does not get NBC's stamp.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================ 05. TONE OF VOICE ================ -->
+<section id="tone">
+  <div class="section-grid">
+    <div class="section-meta">
+      <div class="section-number"><em>05</em></div>
+      <div class="section-label">Tone of voice</div>
+    </div>
+
+    <div class="section-content">
+      <h2 class="title">Dutch directness, Emirati hospitality.</h2>
+      <p class="lede">The NBC voice carries two cultural heritages at once. We say what we mean, but we say it warmly. We respect the time and intelligence of every reader, and we do not waste either.</p>
+
+      <h3 class="subtitle">We are</h3>
+
+      <div class="voice-attrs">
+        <div class="voice-attr">
+          <div class="voice-attr-yes">Direct</div>
+          <div class="voice-attr-no">Not blunt</div>
+        </div>
+        <div class="voice-attr">
+          <div class="voice-attr-yes">Warm</div>
+          <div class="voice-attr-no">Not casual</div>
+        </div>
+        <div class="voice-attr">
+          <div class="voice-attr-yes">Specific</div>
+          <div class="voice-attr-no">Not vague</div>
+        </div>
+        <div class="voice-attr">
+          <div class="voice-attr-yes">Confident</div>
+          <div class="voice-attr-no">Not arrogant</div>
+        </div>
+        <div class="voice-attr">
+          <div class="voice-attr-yes">Knowledgeable</div>
+          <div class="voice-attr-no">Not academic</div>
+        </div>
+        <div class="voice-attr">
+          <div class="voice-attr-yes">Bilingual in spirit</div>
+          <div class="voice-attr-no">Not stiff in translation</div>
+        </div>
+      </div>
+
+      <h3 class="subtitle">We avoid</h3>
+      <ul class="clean">
+        <li>Corporate jargon like synergise, leverage, best-in-class, world-class, premier, leading.</li>
+        <li>Empty superlatives. If we cannot back it with a number or a name, we do not write it.</li>
+        <li>Bureaucratic formality. We are a business council, not a ministry.</li>
+        <li>Emoji in formal communications. Used sparingly on social, never in newsletters or member documents.</li>
+      </ul>
+
+      <h3 class="subtitle">Voice in practice</h3>
+      <p class="small">The same invitation, written the wrong way and the right way.</p>
+
+      <div class="voice-examples">
+        <div class="voice-example">
+          <div class="voice-cell">
+            <div class="voice-tag bad">Avoid</div>
+            <div class="voice-text bad">We are pleased to cordially invite you to our exclusive premier networking event taking place at a venue to be confirmed.</div>
+          </div>
+          <div class="voice-cell">
+            <div class="voice-tag good">Write</div>
+            <div class="voice-text">Join us at Le Petit Belge on 14 May, 7pm. Twelve other Dutch businesses, drinks, and a working dinner.</div>
+          </div>
+        </div>
+
+        <div class="voice-example">
+          <div class="voice-cell">
+            <div class="voice-tag bad">Avoid</div>
+            <div class="voice-text bad">NBC offers members access to a world-class network of leading business executives across the Emirates.</div>
+          </div>
+          <div class="voice-cell">
+            <div class="voice-tag good">Write</div>
+            <div class="voice-text">Two hundred Dutch business owners, founders, and country heads, all already operating in the UAE.</div>
+          </div>
+        </div>
+
+        <div class="voice-example">
+          <div class="voice-cell">
+            <div class="voice-tag bad">Avoid</div>
+            <div class="voice-text bad">We endeavour to facilitate strategic engagement opportunities to leverage cross-border synergies.</div>
+          </div>
+          <div class="voice-cell">
+            <div class="voice-tag good">Write</div>
+            <div class="voice-text">We introduce you to the right people. Then we get out of the way.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================ 06. THE MARK ================ -->
+<section id="mark">
+  <div class="section-grid">
+    <div class="section-meta">
+      <div class="section-number"><em>06</em></div>
+      <div class="section-label">The mark</div>
+    </div>
+
+    <div class="section-content">
+      <h2 class="title">The logo, primary lockup.</h2>
+      <p class="lede">Three forward-leaning orange bars and a blue wordmark in semibold sans-serif. This is the version that appears on letterhead, the website, member badges, and any surface where NBC needs to be unmistakable.</p>
+
+      <div class="logo-display large">
+        <svg width="500" viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg" aria-label="NBC primary logo">
+          <g fill="#FF9B00">
+            <g transform="translate(170, 76)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+            <g transform="translate(220, 68)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+            <g transform="translate(270, 60)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+          </g>
+          <text x="250" y="262" text-anchor="middle" font-family="Geist, system-ui, sans-serif" font-size="24" font-weight="650" letter-spacing="3.5" fill="#22478B">NETHERLANDS</text>
+          <text x="250" y="296" text-anchor="middle" font-family="Geist, system-ui, sans-serif" font-size="24" font-weight="650" letter-spacing="3.5" fill="#22478B">BUSINESS COUNCIL UAE</text>
+        </svg>
+      </div>
+
+      <h3 class="subtitle">Horizontal lockup</h3>
+      <p>For narrow contexts: email signatures, website headers, presentation footers, letterheads.</p>
+
+      <div class="logo-display">
+        <svg width="580" viewBox="0 0 580 200" xmlns="http://www.w3.org/2000/svg" aria-label="NBC horizontal logo">
+          <g fill="#FF9B00">
+            <g transform="translate(70, 36)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+            <g transform="translate(120, 28)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+            <g transform="translate(170, 20)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+          </g>
+          <text x="245" y="88" font-family="Geist, system-ui, sans-serif" font-size="20" font-weight="650" letter-spacing="3" fill="#22478B">NETHERLANDS</text>
+          <text x="245" y="116" font-family="Geist, system-ui, sans-serif" font-size="20" font-weight="650" letter-spacing="3" fill="#22478B">BUSINESS COUNCIL UAE</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================ 07. CONSTRUCTION & RATIONALE ================ -->
+<section id="construction">
+  <div class="section-grid">
+    <div class="section-meta">
+      <div class="section-number"><em>07</em></div>
+      <div class="section-label">Construction & rationale</div>
+    </div>
+
+    <div class="section-content">
+      <h2 class="title">Two heritages, one mark.</h2>
+      <p class="lede">The NBC mark is not arbitrary. Every formal decision in it carries meaning. Understanding the rationale helps every designer, partner, and member apply the brand with confidence.</p>
+
+      <h3 class="subtitle">Reference one, the UAE Nation Brand.</h3>
+      <p>The forward lean, the parallel rhythm, and the staggered ascent deliberately echo the visual language of the UAE Nation Brand mark, the four-stripe logo used by the United Arab Emirates across government, tourism, and official national communications.</p>
+
+      <p>This is intentional citizenship. By sharing a formal vocabulary with the UAE national mark, NBC visually places itself inside the family of identities that belong to the Emirates, not as a foreign organisation operating here, but as an institution that has made the UAE its second home. Twenty-five years of presence earns that right.</p>
+
+      <div class="logo-display" style="flex-direction: column; gap: 24px; min-height: 280px;">
+        <img src="https://uaelogos.ae/storage/2110/The-Emirates.png" alt="UAE Nation Brand" style="max-width: 240px; height: auto;">
+        <div style="font-size: 11px; letter-spacing: 1.6px; text-transform: uppercase; color: #8B8B8B; font-weight: 500;">UAE Nation Brand &middot; reference</div>
+      </div>
+
+      <h3 class="subtitle">Reference two, Rembrandt's etchings.</h3>
+      <p>The parallel-line treatment also recalls Rembrandt's etching technique. The seventeenth-century Dutch master built his most famous works, the Self-Portrait Leaning on a Stone Sill, The Hundred Guilder Print, on dense parallel hatching that constructs form, light, and depth from nothing but repeated lines.</p>
+
+      <p>NBC's three bars are an abstraction of that hatching, a modernist reduction of a 400-year-old Dutch artistic vocabulary into a contemporary geometric mark.</p>
+
+      <div class="callout">
+        <strong>Two reference points, one shape.</strong> The same three forward-leaning bars carry a fifty-year-old UAE national symbol and a four-hundred-year-old Dutch art tradition simultaneously. That is the bridge NBC builds.
+      </div>
+
+      <h3 class="subtitle">Why orange.</h3>
+      <p>The bars use NBC Orange (#FF9B00), which sits in the same family as the official Dutch national orange of the House of Orange-Nassau, the Dutch royal lineage that gives the country its other identity (and its football kit). It is unambiguously, unmistakably Dutch, without being literal flag-replication. It also reads cleanly at any size, from social avatar to building signage.</p>
+
+      <h3 class="subtitle">Why the corner detail.</h3>
+      <p>Each bar carries a subtle rounding on its top-left and bottom-right corners, mirroring the corner treatment of the UAE Nation Brand bars. The top-right and bottom-left corners remain sharp. The result is a leaf-like or blade-like shape that adds craft without adding ornamentation.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================ 08. LOGO VARIANTS ================ -->
+<section id="variants">
+  <div class="section-grid">
+    <div class="section-meta">
+      <div class="section-number"><em>08</em></div>
+      <div class="section-label">Logo variants</div>
+    </div>
+
+    <div class="section-content">
+      <h2 class="title">One mark, four treatments.</h2>
+      <p class="lede">A real brand needs to live on every surface, light, dark, single-colour, photo backgrounds. These four variants cover every legitimate use case.</p>
+
+      <div class="variants-grid">
+        <div class="variant-cell">
+          <div class="variant-preview light">
+            <svg width="200" viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg">
+              <g fill="#FF9B00">
+                <g transform="translate(170, 76)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+                <g transform="translate(220, 68)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+                <g transform="translate(270, 60)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+              </g>
+              <text x="250" y="262" text-anchor="middle" font-family="Geist, system-ui, sans-serif" font-size="24" font-weight="650" letter-spacing="3.5" fill="#22478B">NETHERLANDS</text>
+              <text x="250" y="296" text-anchor="middle" font-family="Geist, system-ui, sans-serif" font-size="24" font-weight="650" letter-spacing="3.5" fill="#22478B">BUSINESS COUNCIL UAE</text>
+            </svg>
+          </div>
+          <div class="variant-label">Primary, on light</div>
+          <div class="variant-desc">The default. Letterheads, web headers, documents, member materials.</div>
+        </div>
+
+        <div class="variant-cell">
+          <div class="variant-preview dark">
+            <svg width="200" viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg">
+              <g fill="#FF9B00">
+                <g transform="translate(170, 76)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+                <g transform="translate(220, 68)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+                <g transform="translate(270, 60)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+              </g>
+              <text x="250" y="262" text-anchor="middle" font-family="Geist, system-ui, sans-serif" font-size="24" font-weight="650" letter-spacing="3.5" fill="#FFFFFF">NETHERLANDS</text>
+              <text x="250" y="296" text-anchor="middle" font-family="Geist, system-ui, sans-serif" font-size="24" font-weight="650" letter-spacing="3.5" fill="#FFFFFF">BUSINESS COUNCIL UAE</text>
+            </svg>
+          </div>
+          <div class="variant-label">Reversed, on dark</div>
+          <div class="variant-desc">Event banners, slide decks with dark themes, social tiles, signage.</div>
+        </div>
+
+        <div class="variant-cell">
+          <div class="variant-preview light">
+            <svg width="200" viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg">
+              <g fill="#22478B">
+                <g transform="translate(170, 76)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+                <g transform="translate(220, 68)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+                <g transform="translate(270, 60)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+              </g>
+              <text x="250" y="262" text-anchor="middle" font-family="Geist, system-ui, sans-serif" font-size="24" font-weight="650" letter-spacing="3.5" fill="#22478B">NETHERLANDS</text>
+              <text x="250" y="296" text-anchor="middle" font-family="Geist, system-ui, sans-serif" font-size="24" font-weight="650" letter-spacing="3.5" fill="#22478B">BUSINESS COUNCIL UAE</text>
+            </svg>
+          </div>
+          <div class="variant-label">Monochrome, on light</div>
+          <div class="variant-desc">Single-colour print, embossing, faxes, legal documents, archival.</div>
+        </div>
+
+        <div class="variant-cell">
+          <div class="variant-preview dark">
+            <svg width="200" viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg">
+              <g fill="#FFFFFF">
+                <g transform="translate(170, 76)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+                <g transform="translate(220, 68)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+                <g transform="translate(270, 60)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+              </g>
+              <text x="250" y="262" text-anchor="middle" font-family="Geist, system-ui, sans-serif" font-size="24" font-weight="650" letter-spacing="3.5" fill="#FFFFFF">NETHERLANDS</text>
+              <text x="250" y="296" text-anchor="middle" font-family="Geist, system-ui, sans-serif" font-size="24" font-weight="650" letter-spacing="3.5" fill="#FFFFFF">BUSINESS COUNCIL UAE</text>
+            </svg>
+          </div>
+          <div class="variant-label">Monochrome reversed</div>
+          <div class="variant-desc">Embroidery on dark fabric, etched signage, video lower-thirds.</div>
+        </div>
+      </div>
+
+      <h3 class="subtitle">Icon-only mark</h3>
+      <p>For social avatars, app icons, favicons, and any context where the wordmark is illegible or redundant. Never use the icon-only mark in formal documents where the full name has not appeared elsewhere on the page.</p>
+
+      <div class="logo-display tight">
+        <svg width="120" viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg">
+          <g fill="#FF9B00">
+            <g transform="translate(20, 50)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+            <g transform="translate(70, 42)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+            <g transform="translate(120, 34)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================ 09. MEMBER BADGE ================ -->
+<section id="member-badge">
+  <div class="section-grid">
+    <div class="section-meta">
+      <div class="section-number"><em>09</em></div>
+      <div class="section-label">Member badge</div>
+    </div>
+
+    <div class="section-content">
+      <h2 class="title">For our members to display.</h2>
+      <p class="lede">A dedicated version of the NBC mark, with the caption &ldquo;Member of&rdquo; set above the wordmark, is supplied to members for use on their websites, email signatures, signage, and printed materials. It signals affiliation without claiming representation.</p>
+
+      <h3 class="subtitle">When to use it</h3>
+      <p>The Member Badge is the only NBC mark that members are licensed to display on their own surfaces. The plain primary lockup is reserved for NBC&rsquo;s own communications. The badge tells the viewer two things in one image: the company is a member of NBC, and NBC stands behind that membership.</p>
+
+      <h3 class="subtitle">Stacked badge</h3>
+
+      <div class="logo-display large">
+        <svg width="500" viewBox="0 0 500 420" xmlns="http://www.w3.org/2000/svg" aria-label="NBC member badge, stacked">
+          <text x="250" y="50" text-anchor="middle" font-family="Geist, system-ui, sans-serif" font-size="12" font-weight="500" letter-spacing="3" fill="#8B8B8B">MEMBER OF</text>
+          <g fill="#FF9B00">
+            <g transform="translate(170, 116)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+            <g transform="translate(220, 108)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+            <g transform="translate(270, 100)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+          </g>
+          <text x="250" y="302" text-anchor="middle" font-family="Geist, system-ui, sans-serif" font-size="24" font-weight="650" letter-spacing="3.5" fill="#22478B">NETHERLANDS</text>
+          <text x="250" y="336" text-anchor="middle" font-family="Geist, system-ui, sans-serif" font-size="24" font-weight="650" letter-spacing="3.5" fill="#22478B">BUSINESS COUNCIL UAE</text>
+        </svg>
+      </div>
+
+      <h3 class="subtitle">Horizontal badge</h3>
+      <p>The horizontal version suits website footers, email signatures, and narrow header strips, anywhere the stacked version would feel oversized.</p>
+
+      <div class="logo-display">
+        <svg width="580" viewBox="0 0 580 230" xmlns="http://www.w3.org/2000/svg" aria-label="NBC member badge, horizontal">
+          <text x="245" y="38" font-family="Geist, system-ui, sans-serif" font-size="11" font-weight="500" letter-spacing="3" fill="#8B8B8B">MEMBER OF</text>
+          <g fill="#FF9B00">
+            <g transform="translate(70, 66)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+            <g transform="translate(120, 58)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+            <g transform="translate(170, 50)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+          </g>
+          <text x="245" y="118" font-family="Geist, system-ui, sans-serif" font-size="20" font-weight="650" letter-spacing="3" fill="#22478B">NETHERLANDS</text>
+          <text x="245" y="146" font-family="Geist, system-ui, sans-serif" font-size="20" font-weight="650" letter-spacing="3" fill="#22478B">BUSINESS COUNCIL UAE</text>
+        </svg>
+      </div>
+
+      <h3 class="subtitle">Caption type</h3>
+      <p>The &ldquo;Member of&rdquo; text uses the brand&rsquo;s standard caption style: Geist Medium, set in uppercase at 11 px with 3 px letter-spacing, in neutral grey (#8B8B8B). It is intentionally smaller than the main wordmark so that it qualifies the NBC mark without competing with it.</p>
+
+      <div class="callout">
+        <strong>Who gets the badge.</strong> The Member Badge is supplied to current paying members only and may be displayed for the duration of active membership. On lapse or termination of membership, the badge must be removed from all surfaces. Non-members may not use the badge for any purpose.
+      </div>
+
+      <h3 class="subtitle">Member badge rules</h3>
+      <ul class="clean">
+        <li>Use only the supplied stacked or horizontal version. Do not recreate or redraw.</li>
+        <li>Do not change the &ldquo;Member of&rdquo; wording or its placement.</li>
+        <li>Do not place the badge alongside competitor logos in a way that suggests endorsement.</li>
+        <li>Do not use the badge to imply official NBC representation in any commercial transaction.</li>
+        <li>All other logo rules (clear space, minimum size, do-nots) apply to the Member Badge as written.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================ 10. CLEAR SPACE & SIZING ================ -->
+<section id="clear-space">
+  <div class="section-grid">
+    <div class="section-meta">
+      <div class="section-number"><em>10</em></div>
+      <div class="section-label">Clear space & sizing</div>
+    </div>
+
+    <div class="section-content">
+      <h2 class="title">Give it room to breathe.</h2>
+      <p class="lede">The NBC mark works because of its restraint. Crowding it with adjacent elements eats that restraint and weakens the brand. The clear space and minimum size rules below are non-negotiable.</p>
+
+      <h3 class="subtitle">Clear space</h3>
+      <p>The shaded zone below is the &ldquo;no-go area&rdquo; around the logo. No other element, text, image, button, photo, or edge of page, may enter this zone. The minimum gap on every side equals the width of one orange bar.</p>
+
+      <div class="logo-display" style="min-height: 480px;">
+        <svg width="560" viewBox="0 0 600 460" xmlns="http://www.w3.org/2000/svg" aria-label="Clear space diagram">
+          <!-- Shaded clear-space zone (tinted orange) -->
+          <rect x="120" y="60" width="360" height="340" fill="#FF9B00" opacity="0.08"/>
+          <rect x="120" y="60" width="360" height="340" fill="none" stroke="#FF9B00" stroke-width="1" stroke-dasharray="5 4" opacity="0.7"/>
+
+          <!-- Label inside the shaded zone, top-left -->
+          <text x="132" y="82" font-family="Geist, system-ui, sans-serif" font-size="11" font-weight="500" letter-spacing="2" fill="#FF9B00">CLEAR SPACE — KEEP EMPTY</text>
+
+          <!-- Logo, centred -->
+          <g fill="#FF9B00">
+            <g transform="translate(220, 116)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+            <g transform="translate(270, 108)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+            <g transform="translate(320, 100)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+          </g>
+          <text x="300" y="302" text-anchor="middle" font-family="Geist, system-ui, sans-serif" font-size="24" font-weight="650" letter-spacing="3.5" fill="#22478B">NETHERLANDS</text>
+          <text x="300" y="336" text-anchor="middle" font-family="Geist, system-ui, sans-serif" font-size="24" font-weight="650" letter-spacing="3.5" fill="#22478B">BUSINESS COUNCIL UAE</text>
+
+          <!-- Reference bar on the right + label -->
+          <g transform="translate(520, 200)" opacity="0.9">
+            <path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z" fill="#FF9B00"/>
+          </g>
+          <line x1="520" y1="340" x2="580" y2="340" stroke="#8B8B8B" stroke-width="0.75"/>
+          <line x1="520" y1="335" x2="520" y2="345" stroke="#8B8B8B" stroke-width="0.75"/>
+          <line x1="580" y1="335" x2="580" y2="345" stroke="#8B8B8B" stroke-width="0.75"/>
+          <text x="550" y="362" text-anchor="middle" font-family="Geist, system-ui, sans-serif" font-size="10" letter-spacing="1.2" font-weight="500" fill="#8B8B8B">= 1 BAR WIDTH</text>
+          <text x="550" y="378" text-anchor="middle" font-family="Geist, system-ui, sans-serif" font-size="10" letter-spacing="1.2" font-weight="500" fill="#8B8B8B">MINIMUM GAP</text>
+        </svg>
+      </div>
+
+      <h3 class="subtitle">Minimum sizes</h3>
+      <p>Below these sizes, the bars and wordmark lose legibility. Use the icon-only mark for smaller applications.</p>
+
+      <ul class="clean">
+        <li>Print, primary lockup: 25 mm wide minimum.</li>
+        <li>Print, horizontal lockup: 35 mm wide minimum.</li>
+        <li>Digital, primary lockup: 120 px wide minimum.</li>
+        <li>Digital, horizontal lockup: 180 px wide minimum.</li>
+        <li>Digital, icon-only: 32 px wide minimum.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================ 11. DON'TS ================ -->
+<section id="donts">
+  <div class="section-grid">
+    <div class="section-meta">
+      <div class="section-number"><em>11</em></div>
+      <div class="section-label">What not to do</div>
+    </div>
+
+    <div class="section-content">
+      <h2 class="title">Eight things to never do.</h2>
+      <p class="lede">When in doubt, treat the logo with restraint. If a transformation is not listed in this brand book, it is not approved.</p>
+
+      <div class="donts">
+        <div class="dont">
+          <div class="dont-preview">
+            <svg width="100" viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg" style="transform: scaleX(1.6);">
+              <g fill="#FF9B00">
+                <g transform="translate(20, 50)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+                <g transform="translate(70, 42)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+                <g transform="translate(120, 34)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+              </g>
+            </svg>
+          </div>
+          <div class="dont-label">Do not stretch or distort.</div>
+        </div>
+
+        <div class="dont">
+          <div class="dont-preview">
+            <svg width="100" viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg">
+              <g fill="#22cc88">
+                <g transform="translate(20, 50)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+                <g transform="translate(70, 42)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+                <g transform="translate(120, 34)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+              </g>
+            </svg>
+          </div>
+          <div class="dont-label">Do not change the bar colour.</div>
+        </div>
+
+        <div class="dont">
+          <div class="dont-preview">
+            <svg width="100" viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(15deg);">
+              <g fill="#FF9B00">
+                <g transform="translate(20, 50)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+                <g transform="translate(70, 42)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+                <g transform="translate(120, 34)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+              </g>
+            </svg>
+          </div>
+          <div class="dont-label">Do not rotate the mark.</div>
+        </div>
+
+        <div class="dont">
+          <div class="dont-preview" style="filter: drop-shadow(4px 4px 6px rgba(0,0,0,0.3));">
+            <svg width="100" viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg">
+              <g fill="#FF9B00">
+                <g transform="translate(20, 50)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+                <g transform="translate(70, 42)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+                <g transform="translate(120, 34)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+              </g>
+            </svg>
+          </div>
+          <div class="dont-label">Do not add shadows or effects.</div>
+        </div>
+
+        <div class="dont">
+          <div class="dont-preview" style="background: linear-gradient(45deg, #888, #444);">
+            <svg width="100" viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg">
+              <g fill="#FF9B00">
+                <g transform="translate(20, 50)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+                <g transform="translate(70, 42)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+                <g transform="translate(120, 34)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+              </g>
+            </svg>
+          </div>
+          <div class="dont-label">Do not place on busy backgrounds.</div>
+        </div>
+
+        <div class="dont">
+          <div class="dont-preview">
+            <svg width="100" viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg">
+              <g>
+                <g transform="translate(20, 50)" fill="#FF9B00"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+                <g transform="translate(70, 42)" fill="#AD1E26"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+                <g transform="translate(120, 34)" fill="#22478B"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+              </g>
+            </svg>
+          </div>
+          <div class="dont-label">Do not recolour individual bars.</div>
+        </div>
+
+        <div class="dont">
+          <div class="dont-preview">
+            <svg width="100" viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg">
+              <g fill="none" stroke="#FF9B00" stroke-width="3">
+                <g transform="translate(20, 50)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+                <g transform="translate(70, 42)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+                <g transform="translate(120, 34)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+              </g>
+            </svg>
+          </div>
+          <div class="dont-label">Do not outline or hollow out.</div>
+        </div>
+
+        <div class="dont">
+          <div class="dont-preview">
+            <svg width="160" viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg">
+              <g fill="#FF9B00">
+                <g transform="translate(170, 76)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+                <g transform="translate(220, 68)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+                <g transform="translate(270, 60)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+              </g>
+              <text x="250" y="262" text-anchor="middle" font-family="Comic Sans MS, cursive" font-size="24" font-weight="650" fill="#22478B">NETHERLANDS</text>
+              <text x="250" y="296" text-anchor="middle" font-family="Comic Sans MS, cursive" font-size="24" font-weight="650" fill="#22478B">BUSINESS COUNCIL UAE</text>
+            </svg>
+          </div>
+          <div class="dont-label">Do not change the wordmark font.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================ 12. COLOUR PALETTE ================ -->
+<section id="colour">
+  <div class="section-grid">
+    <div class="section-meta">
+      <div class="section-number"><em>12</em></div>
+      <div class="section-label">Colour palette</div>
+    </div>
+
+    <div class="section-content">
+      <h2 class="title">Four colours, two roles.</h2>
+      <p class="lede">Two primary colours carry the brand identity. Two secondary colours support specific applications. White is the breathing room. Every other colour is off-brand.</p>
+
+      <h3 class="subtitle">Primary</h3>
+
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background: #FF9B00; color: #FFFFFF;">
+            <div class="swatch-name">NBC Orange</div>
+          </div>
+          <div class="swatch-info">
+            <div class="swatch-row"><span class="swatch-row-label">Hex</span><span class="swatch-row-value">#FF9B00</span></div>
+            <div class="swatch-row"><span class="swatch-row-label">RGB</span><span class="swatch-row-value">255 155 0</span></div>
+            <div class="swatch-row"><span class="swatch-row-label">CMYK</span><span class="swatch-row-value">0 39 100 0</span></div>
+            <div class="swatch-row"><span class="swatch-row-label">Pantone</span><span class="swatch-row-value">144 C</span></div>
+          </div>
+        </div>
+
+        <div class="swatch">
+          <div class="swatch-color" style="background: #22478B; color: #FFFFFF;">
+            <div class="swatch-name">NBC Blue</div>
+          </div>
+          <div class="swatch-info">
+            <div class="swatch-row"><span class="swatch-row-label">Hex</span><span class="swatch-row-value">#22478B</span></div>
+            <div class="swatch-row"><span class="swatch-row-label">RGB</span><span class="swatch-row-value">34 71 139</span></div>
+            <div class="swatch-row"><span class="swatch-row-label">CMYK</span><span class="swatch-row-value">100 78 7 12</span></div>
+            <div class="swatch-row"><span class="swatch-row-label">Pantone</span><span class="swatch-row-value">287 C</span></div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="subtitle">Secondary</h3>
+
+      <div class="swatch-grid">
+        <div class="swatch">
+          <div class="swatch-color" style="background: #AD1E26; color: #FFFFFF;">
+            <div class="swatch-name">NBC Red</div>
+          </div>
+          <div class="swatch-info">
+            <div class="swatch-row"><span class="swatch-row-label">Hex</span><span class="swatch-row-value">#AD1E26</span></div>
+            <div class="swatch-row"><span class="swatch-row-label">RGB</span><span class="swatch-row-value">173 30 38</span></div>
+            <div class="swatch-row"><span class="swatch-row-label">CMYK</span><span class="swatch-row-value">17 95 92 7</span></div>
+            <div class="swatch-row"><span class="swatch-row-label">Pantone</span><span class="swatch-row-value">186 C</span></div>
+          </div>
+        </div>
+
+        <div class="swatch">
+          <div class="swatch-color" style="background: #FFFFFF; color: #141414; border-bottom: 1px solid var(--hairline);">
+            <div class="swatch-name">White</div>
+          </div>
+          <div class="swatch-info">
+            <div class="swatch-row"><span class="swatch-row-label">Hex</span><span class="swatch-row-value">#FFFFFF</span></div>
+            <div class="swatch-row"><span class="swatch-row-label">RGB</span><span class="swatch-row-value">255 255 255</span></div>
+            <div class="swatch-row"><span class="swatch-row-label">CMYK</span><span class="swatch-row-value">0 0 0 0</span></div>
+            <div class="swatch-row"><span class="swatch-row-label">Role</span><span class="swatch-row-value">Breathing room</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <strong>Roles, not equals.</strong> NBC Orange and NBC Blue carry the brand. Red is reserved for accents, awards, and specific moments of emphasis. White is structural. Treating all four as equal-weight equally-usable colours flattens the hierarchy and weakens the identity.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================ 13. COLOUR PROPORTIONS ================ -->
+<section id="proportions">
+  <div class="section-grid">
+    <div class="section-meta">
+      <div class="section-number"><em>13</em></div>
+      <div class="section-label">Colour proportions</div>
+    </div>
+
+    <div class="section-content">
+      <h2 class="title">The 60/25/10/5 rule.</h2>
+      <p class="lede">A simple starting point for any composition. Whitespace dominates. Blue does the structural work. Orange is the accent. Red is reserved for the rare moment of emphasis.</p>
+
+      <div class="proportions">
+        <div class="proportions-bar">
+          <div class="proportion-segment" style="background: #FFFFFF; color: #8B8B8B; flex: 60;">60</div>
+          <div class="proportion-segment" style="background: #22478B; color: #FFFFFF; flex: 25;">25</div>
+          <div class="proportion-segment" style="background: #FF9B00; color: #FFFFFF; flex: 10;">10</div>
+          <div class="proportion-segment" style="background: #AD1E26; color: #FFFFFF; flex: 5;">5</div>
+        </div>
+
+        <div class="proportions-legend">
+          <div class="proportion-leg">
+            <div class="proportion-pct">60%</div>
+            <div class="proportion-name">White</div>
+          </div>
+          <div class="proportion-leg">
+            <div class="proportion-pct">25%</div>
+            <div class="proportion-name">Blue</div>
+          </div>
+          <div class="proportion-leg">
+            <div class="proportion-pct">10%</div>
+            <div class="proportion-name">Orange</div>
+          </div>
+          <div class="proportion-leg">
+            <div class="proportion-pct">5%</div>
+            <div class="proportion-name">Red</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="subtitle">Accessibility</h3>
+      <p>NBC Blue (#22478B) on white meets WCAG AAA contrast for body text. NBC Orange (#FF9B00) on white does not meet WCAG AA for body text and should be used only for headlines, accents, or the brand mark itself, never for paragraph text.</p>
+
+      <p>For dark backgrounds, white text on NBC Blue meets WCAG AAA. White text on NBC Orange falls below WCAG AA and is reserved for short labels or the wordmark.</p>
+
+      <div class="callout">
+        <strong>If in doubt, less colour.</strong> Restrained palette use is more recognisable than maximalist colour. A page with one orange accent reads as NBC. A page covered in orange reads as an advertisement.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================ 14. TYPOGRAPHY ================ -->
+<section id="typography">
+  <div class="section-grid">
+    <div class="section-meta">
+      <div class="section-number"><em>14</em></div>
+      <div class="section-label">Typography</div>
+    </div>
+
+    <div class="section-content">
+      <h2 class="title">One workhorse, one editorial accent.</h2>
+      <p class="lede">A single primary typeface carries the entire brand, headlines, body, captions, the wordmark. A second face appears only for editorial moments, pull quotes, ceremonial section openers, the occasional italic word.</p>
+
+      <h3 class="subtitle">Primary, Geist</h3>
+      <p>An open-source, modern, geometric sans-serif designed by Vercel. Distinctive without being expressive. Free for commercial use. Available from Google Fonts and the Geist GitHub repository.</p>
+
+      <div class="type-specimen">
+        <div class="type-glyph">Aa Bb 01</div>
+        <div class="type-info">
+          <div class="type-info-block">
+            <div class="type-info-label">Typeface</div>
+            <div class="type-info-value">Geist</div>
+          </div>
+          <div class="type-info-block">
+            <div class="type-info-label">Designer</div>
+            <div class="type-info-value">Vercel</div>
+          </div>
+          <div class="type-info-block">
+            <div class="type-info-label">License</div>
+            <div class="type-info-value">SIL Open Font</div>
+          </div>
+        </div>
+
+        <div class="type-weights">
+          <div class="type-weight-line">
+            <span class="type-weight-label">300 Light</span>
+            <span class="type-weight-sample" style="font-weight: 300;">The Netherlands Business Council</span>
+          </div>
+          <div class="type-weight-line">
+            <span class="type-weight-label">400 Regular</span>
+            <span class="type-weight-sample" style="font-weight: 400;">The Netherlands Business Council</span>
+          </div>
+          <div class="type-weight-line">
+            <span class="type-weight-label">500 Medium</span>
+            <span class="type-weight-sample" style="font-weight: 500;">The Netherlands Business Council</span>
+          </div>
+          <div class="type-weight-line">
+            <span class="type-weight-label">600 Semibold</span>
+            <span class="type-weight-sample" style="font-weight: 600;">The Netherlands Business Council</span>
+          </div>
+          <div class="type-weight-line">
+            <span class="type-weight-label">700 Bold</span>
+            <span class="type-weight-sample" style="font-weight: 700;">The Netherlands Business Council</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="subtitle">Editorial accent, Instrument Serif</h3>
+      <p>An open-source italic display serif with distinctive character. Free from Google Fonts. Use only for pull quotes, section openers, the occasional emphasised word, and ceremonial type moments. Never for body copy.</p>
+
+      <div class="type-specimen">
+        <div class="type-glyph serif">Aa <em>Bb</em> 01</div>
+        <div class="type-info">
+          <div class="type-info-block">
+            <div class="type-info-label">Typeface</div>
+            <div class="type-info-value">Instrument Serif</div>
+          </div>
+          <div class="type-info-block">
+            <div class="type-info-label">Designer</div>
+            <div class="type-info-value">Instrument</div>
+          </div>
+          <div class="type-info-block">
+            <div class="type-info-label">License</div>
+            <div class="type-info-value">SIL Open Font</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="subtitle">System fallback</h3>
+      <p>When Geist is unavailable (older browsers, locked-down corporate systems), the fallback stack is: system-ui, -apple-system, Segoe UI, sans-serif. The brand will degrade gracefully without rebreaking.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================ 15. TYPE HIERARCHY ================ -->
+<section id="hierarchy">
+  <div class="section-grid">
+    <div class="section-meta">
+      <div class="section-number"><em>15</em></div>
+      <div class="section-label">Type hierarchy</div>
+    </div>
+
+    <div class="section-content">
+      <h2 class="title">Six levels. No more.</h2>
+      <p class="lede">A clear hierarchy makes documents scannable and brand consistent. These six levels cover everything from a member newsletter to an annual report.</p>
+
+      <div class="hierarchy">
+        <div class="hier-row">
+          <div class="hier-meta">
+            <div class="hier-name">Display</div>
+            <div class="hier-specs">Geist Medium · 72/72 · −2px</div>
+          </div>
+          <div style="font-size: 64px; font-weight: 500; line-height: 0.95; letter-spacing: -2px;">A connected future.</div>
+        </div>
+
+        <div class="hier-row">
+          <div class="hier-meta">
+            <div class="hier-name">H1</div>
+            <div class="hier-specs">Geist Medium · 48/52 · −1px</div>
+          </div>
+          <div style="font-size: 44px; font-weight: 500; line-height: 1.1; letter-spacing: -1px;">Section heading</div>
+        </div>
+
+        <div class="hier-row">
+          <div class="hier-meta">
+            <div class="hier-name">H2</div>
+            <div class="hier-specs">Geist Medium · 28/34 · −0.4px</div>
+          </div>
+          <div style="font-size: 26px; font-weight: 500; line-height: 1.2; letter-spacing: -0.4px;">Sub-section heading</div>
+        </div>
+
+        <div class="hier-row">
+          <div class="hier-meta">
+            <div class="hier-name">Lede</div>
+            <div class="hier-specs">Geist Regular · 22/30 · 0</div>
+          </div>
+          <div style="font-size: 20px; font-weight: 400; line-height: 1.4;">Opening paragraph or stand-first that sets up what follows in slightly larger, more confident type.</div>
+        </div>
+
+        <div class="hier-row">
+          <div class="hier-meta">
+            <div class="hier-name">Body</div>
+            <div class="hier-specs">Geist Regular · 16/28 · 0</div>
+          </div>
+          <div style="font-size: 16px; font-weight: 400; line-height: 1.65;">Standard body copy. Use 1.6 to 1.7 line height for comfortable reading. Maximum line length around 70 characters.</div>
+        </div>
+
+        <div class="hier-row">
+          <div class="hier-meta">
+            <div class="hier-name">Caption</div>
+            <div class="hier-specs">Geist Medium · 11/16 · +1.5px</div>
+          </div>
+          <div style="font-size: 11px; font-weight: 500; line-height: 1.5; letter-spacing: 1.5px; text-transform: uppercase; color: var(--grey-400);">CAPTION OR EYEBROW LABEL</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================ 16. APPLICATIONS ================ -->
+<section id="applications">
+  <div class="section-grid">
+    <div class="section-meta">
+      <div class="section-number"><em>16</em></div>
+      <div class="section-label">Applications</div>
+    </div>
+
+    <div class="section-content">
+      <h2 class="title">Where the brand actually lives.</h2>
+      <p class="lede">A brand book is a starting point. The real test is whether the identity holds up across the surfaces members actually encounter, an email signature, a social tile, a name badge, an event banner.</p>
+
+      <h3 class="subtitle">Email signature</h3>
+      <p>Use the primary stacked lockup, with personal details in Geist Regular and Medium. Keep to four lines maximum.</p>
+
+      <div class="app-card">
+        <div class="email-sig">
+          <svg width="130" viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg" aria-label="NBC primary logo">
+            <g fill="#FF9B00">
+              <g transform="translate(170, 76)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+              <g transform="translate(220, 68)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+              <g transform="translate(270, 60)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+            </g>
+            <text x="250" y="262" text-anchor="middle" font-family="Geist, system-ui, sans-serif" font-size="24" font-weight="650" letter-spacing="3.5" fill="#22478B">NETHERLANDS</text>
+            <text x="250" y="296" text-anchor="middle" font-family="Geist, system-ui, sans-serif" font-size="24" font-weight="650" letter-spacing="3.5" fill="#22478B">BUSINESS COUNCIL UAE</text>
+          </svg>
+
+          <div class="email-sig-text">
+            <div class="email-sig-name">[Your name]</div>
+            <div>Managing Director · Netherlands Business Council UAE</div>
+            <div class="email-sig-meta">+971 58 500 9209 · office@nlbcuae.com</div>
+            <div class="email-sig-meta">nlbcuae.com</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="subtitle">Social avatar</h3>
+      <p>Use the icon-only mark on a solid orange or blue background. Never put the full lockup in a circular crop, the wordmark will be illegible.</p>
+
+      <div class="logo-display tight" style="background: var(--orange);">
+        <svg width="80" viewBox="0 0 240 200" xmlns="http://www.w3.org/2000/svg">
+          <g fill="#FFFFFF">
+            <g transform="translate(20, 50)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+            <g transform="translate(70, 42)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+            <g transform="translate(120, 34)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+          </g>
+        </svg>
+      </div>
+
+      <h3 class="subtitle">Event banner</h3>
+      <p>Reversed lockup on NBC Blue, with the event title in Geist Medium and date in Geist Regular. Orange used only for the event name or single keyword.</p>
+
+      <div style="background: #22478B; padding: 64px 48px; margin: 24px 0; color: #FFFFFF;">
+        <div style="display: flex; flex-direction: column; gap: 32px; align-items: flex-start;">
+          <svg width="240" viewBox="0 0 580 200" xmlns="http://www.w3.org/2000/svg">
+            <g fill="#FF9B00">
+              <g transform="translate(70, 36)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+              <g transform="translate(120, 28)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+              <g transform="translate(170, 20)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+            </g>
+            <text x="245" y="88" font-family="Geist, system-ui, sans-serif" font-size="20" font-weight="650" letter-spacing="3" fill="#FFFFFF">NETHERLANDS</text>
+            <text x="245" y="116" font-family="Geist, system-ui, sans-serif" font-size="20" font-weight="650" letter-spacing="3" fill="#FFFFFF">BUSINESS COUNCIL UAE</text>
+          </svg>
+
+          <div>
+            <div style="font-size: 13px; letter-spacing: 1.6px; text-transform: uppercase; color: #FF9B00; font-weight: 500; margin-bottom: 16px;">14 May 2026 · 7:00 PM</div>
+            <div style="font-size: 56px; font-weight: 500; line-height: 1; letter-spacing: -1.5px; max-width: 700px;">Business Elevator Pitch <span style="color: #FF9B00;"><em class="serif">with</em></span> the Belgian Business Council</div>
+            <div style="font-size: 16px; margin-top: 16px; opacity: 0.8;">Le Petit Belge, Dubai</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="subtitle">Document footer</h3>
+      <p>Use the horizontal lockup, left-aligned, with the contact details right-aligned in Geist Regular.</p>
+
+      <div class="app-card" style="display: flex; justify-content: space-between; align-items: center;">
+        <svg width="220" viewBox="0 0 580 200" xmlns="http://www.w3.org/2000/svg">
+          <g fill="#FF9B00">
+            <g transform="translate(70, 36)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+            <g transform="translate(120, 28)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+            <g transform="translate(170, 20)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+          </g>
+          <text x="245" y="88" font-family="Geist, system-ui, sans-serif" font-size="20" font-weight="650" letter-spacing="3" fill="#22478B">NETHERLANDS</text>
+          <text x="245" y="116" font-family="Geist, system-ui, sans-serif" font-size="20" font-weight="650" letter-spacing="3" fill="#22478B">BUSINESS COUNCIL UAE</text>
+        </svg>
+
+        <div style="text-align: right; font-size: 13px; color: var(--grey-400); line-height: 1.6;">
+          <div>P.O. Box 75343, Dubai, UAE</div>
+          <div>office@nlbcuae.com · nlbcuae.com</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================ FOOTER ================ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-label">Document</div>
+      <div class="footer-body">
+        Netherlands Business Council UAE<br>
+        Brand Guidelines, Version 1.0<br>
+        2026
+      </div>
+    </div>
+
+    <div>
+      <div class="footer-label">Authority</div>
+      <div class="footer-body">
+        This document is maintained by the NBC UAE Board.<br>
+        Brand questions: <a href="mailto:office@nlbcuae.com">office@nlbcuae.com</a>
+      </div>
+    </div>
+
+    <div>
+      <div class="footer-label">Get the assets</div>
+      <div class="footer-body">
+        Logos, colour profiles, fonts, and templates available on request.<br>
+        Members may use NBC marks under the terms set out in the membership agreement.
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

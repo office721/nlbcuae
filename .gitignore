@@ -1,0 +1,19 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.astro/
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# Brainstorm working files (local only)
+.superpowers/
+
+# OS / editor
+.DS_Store
+*.log
+.vscode/
