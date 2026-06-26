@@ -72,4 +72,6 @@ export interface GalleryEvent {
   date?: string;
   location?: string;
   photoCount: number;
+  /** Short write-up; paragraphs separated by "\n". */
+  description?: string;
 }

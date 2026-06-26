@@ -4,9 +4,9 @@ import Container from '../../components/Container.astro';
 import PageHeader from '../../components/PageHeader.astro';
 import SectionHeading from '../../components/SectionHeading.astro';
 import EventCard from '../../components/EventCard.astro';
-import { getUpcomingEvents, getPastEvents } from '../../lib/events';
+import PastEventsGallery from '../../components/PastEventsGallery.astro';
+import { getUpcomingEvents } from '../../lib/events';
 const upcoming = await getUpcomingEvents();
-const past = await getPastEvents();
 ---
 <BaseLayout title="Events" description="Networking nights, working breakfasts, roundtables, and the annual gala. See what is coming up at the Netherlands Business Council UAE.">
   <PageHeader
@@ -28,16 +28,9 @@ const past = await getPastEvents();
     </Container>
   </section>
 
-  {past.length > 0 && (
-    <section class="ev-section ev-section--alt">
-      <Container>
-        <SectionHeading eyebrow="Looking back" title="Past events" />
-        <div class="ev-grid">
-          {past.map((e) => <EventCard event={e} />)}
-        </div>
-      </Container>
-    </section>
-  )}
+  <div class="ev-past">
+    <PastEventsGallery id="past" />
+  </div>
 </BaseLayout>
 
 <style>
@@ -47,6 +40,7 @@ const past = await getPastEvents();
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px;
   }
   .empty { margin-top: 32px; color: var(--grey-400); font-size: 17px; }
+  .ev-past { background: var(--paper); border-top: 1px solid var(--hairline); }
   @media (max-width: 980px) { .ev-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 640px) { .ev-grid { grid-template-columns: 1fr; } }
 </style>

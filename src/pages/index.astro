@@ -48,8 +48,8 @@ const members = await getCorporateMembers();
     </Container>
   </section>
 
-  <!-- 02b · Past events gallery -->
-  <PastEventsGallery />
+  <!-- 02b · Past events gallery (latest two; full set on the Events page) -->
+  <PastEventsGallery limit={2} showAllHref={`${href('/events')}#past`} />
 
   <!-- 03 · Upcoming events -->
   <section class="section section--alt">
