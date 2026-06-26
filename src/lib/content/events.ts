@@ -1,91 +1,79 @@
 import type { NbcEvent } from '../types';
 
 /**
- * Placeholder events, based on the current site's calendar.
- * Replaced by the GlueUp events feed in Phase 2.
- * Dates are illustrative, with a mix of future and past so list pages have content.
+ * Real NBC events, sourced from https://www.nlbcuae.com/events (2026 calendar).
+ * Images are the actual event graphics from the live site. In Phase 2 this
+ * list is replaced by the live GlueUp events feed.
  */
 export const events: NbcEvent[] = [
   {
     slug: 'summer-networking-drinks',
-    title: 'Summer Networking Drinks',
-    startsAt: '2026-07-14T19:00:00+04:00',
-    endsAt: '2026-07-14T22:00:00+04:00',
-    location: 'Le Petit Belge, Dubai',
+    title: 'NBC Summer Networking Drinks',
+    startsAt: '2026-07-01T19:00:00+04:00',
+    endsAt: '2026-07-01T22:00:00+04:00',
+    location: 'CQ French Brasserie, Barsha Heights, Dubai',
     type: 'Networking',
     summary:
-      'An informal evening of drinks and introductions with Dutch businesses across the Emirates.',
+      'An informal evening of drinks and introductions with the Dutch business community at CQ French Brasserie.',
     body:
-      'Join fellow members for our summer networking evening. Expect drinks, a relaxed setting, and the right people in the room. Come and meet founders, country heads, and managers working across the UAE.',
+      'Join fellow members for our summer networking evening at CQ French Brasserie in Barsha Heights. Expect drinks, a relaxed setting, and the right people in the room. Come and meet founders, country heads, and managers working across the UAE.',
     registerUrl: 'https://www.nlbcuae.com/events',
-    image: '/images/events/networking-drinks.jpg',
+    image: '/images/events/summer-drinks.png',
   },
   {
-    slug: 'inter-council-networking-night',
-    title: 'Inter-Council Networking Night',
-    startsAt: '2026-08-05T18:30:00+04:00',
-    endsAt: '2026-08-05T21:30:00+04:00',
-    location: 'Capital Club, Abu Dhabi',
+    slug: 'big-inter-council-networking-night',
+    title: 'The Big Inter-Council Networking Night',
+    startsAt: '2026-09-10T18:30:00+04:00',
+    endsAt: '2026-09-10T21:00:00+04:00',
+    location: 'SO/ Uptown Dubai',
     type: 'Networking',
     summary:
-      'A joint evening with partner business councils. A chance to grow your network beyond the Dutch community.',
+      'A large joint networking night with partner business councils from across the UAE, hosted at SO/ Uptown Dubai.',
     body:
-      'NBC joins fellow European and international business councils for an evening that widens the room. You can expect a cross-section of the Abu Dhabi business community and warm, useful introductions.',
+      'Our biggest networking night of the year brings together the Dutch community and partner business councils from across the Emirates. It is a chance to grow your network well beyond the Dutch community in one evening, held at SO/ Uptown Dubai.',
     registerUrl: 'https://www.nlbcuae.com/events',
-    image: '/images/events/inter-council.jpg',
+    image: '/images/events/inter-council-night.png',
   },
   {
-    slug: 'professional-development-breakfast',
-    title: 'Professional Development Breakfast',
-    startsAt: '2026-09-10T08:30:00+04:00',
-    endsAt: '2026-09-10T10:30:00+04:00',
-    location: 'Dubai Chambers, Dubai',
+    slug: 'people-compliance-and-wellbeing',
+    title: 'People, Compliance & Wellbeing',
+    startsAt: '2026-09-15T08:30:00+04:00',
+    endsAt: '2026-09-15T10:00:00+04:00',
+    location: 'Dubai',
     type: 'Panel',
     summary:
-      'A working breakfast on doing business in the UAE. Practical advice, not theory.',
+      'A morning session on people, compliance, and wellbeing for companies operating in the UAE.',
     body:
-      'Over coffee, a focused panel shares what really makes a difference for Dutch companies entering or growing in the UAE. Topics include licensing, hiring, and market entry. Bring your questions.',
+      'A focused morning session on the people side of doing business in the UAE, covering compliance, HR, and employee wellbeing. Practical guidance for companies of every size. Bring your questions.',
     registerUrl: 'https://www.nlbcuae.com/events',
-    image: '/images/events/breakfast.jpg',
+    image: '/images/events/nbc-generic.png',
   },
   {
-    slug: 'nbc-annual-gala-2026',
-    title: 'NBC Annual Gala Dinner 2026',
-    startsAt: '2026-11-20T19:00:00+04:00',
-    endsAt: '2026-11-20T23:30:00+04:00',
-    location: 'Jumeirah Emirates Towers, Dubai',
+    slug: 'site-visit-tencate-grass',
+    title: 'Site Visit: TenCate Grass',
+    startsAt: '2026-09-23T09:30:00+04:00',
+    endsAt: '2026-09-23T11:00:00+04:00',
+    location: 'Dubai',
+    type: 'Site Visit',
+    summary:
+      'A guided site visit to TenCate Grass to see Dutch manufacturing and innovation in the UAE up close.',
+    body:
+      'A guided visit to TenCate Grass for a behind-the-scenes look at Dutch manufacturing and innovation in the region. A rare chance to see a member operation up close and meet the team.',
+    registerUrl: 'https://www.nlbcuae.com/events',
+    image: '/images/events/nbc-generic.png',
+  },
+  {
+    slug: 'nbc-gala-2026',
+    title: 'NBC Gala 2026',
+    startsAt: '2026-11-21T19:00:00+04:00',
+    endsAt: '2026-11-21T23:30:00+04:00',
+    location: 'Dubai',
     type: 'Gala',
     summary:
       'The highlight of the NBC calendar. A black-tie evening celebrating the Dutch and UAE business community.',
     body:
-      'Our flagship event of the year brings together the full NBC community, the Dutch Consul General, and partners from across the Emirates for an evening of recognition and connection.',
+      'Our flagship event of the year brings together the full NBC community, the Dutch Consul General, and partners from across the Emirates for a black-tie evening of recognition and connection.',
     registerUrl: 'https://www.nlbcuae.com/events',
-    image: '/images/events/gala.jpg',
-  },
-  {
-    slug: 'nbc-together-evening',
-    title: 'NBC Together: An Evening of Connection',
-    startsAt: '2026-03-12T18:30:00+04:00',
-    endsAt: '2026-03-12T21:00:00+04:00',
-    location: 'Dubai',
-    type: 'Networking',
-    summary: 'A community evening that brings members together in support of one another.',
-    body:
-      'A warm evening built around the NBC community, with connection, support, and good conversation among Dutch businesses in the UAE.',
-    registerUrl: 'https://www.nlbcuae.com/events',
-    image: '/images/events/together.jpg',
-  },
-  {
-    slug: 'market-entry-roundtable',
-    title: 'UAE Market Entry Roundtable',
-    startsAt: '2026-02-18T16:00:00+04:00',
-    endsAt: '2026-02-18T18:00:00+04:00',
-    location: 'Consulate General, Dubai',
-    type: 'Roundtable',
-    summary: 'A closed-door roundtable for companies considering the UAE market.',
-    body:
-      'A practical, closed-door session with the Consulate and experienced members on entering the UAE market. We cover company structures, common pitfalls, and first steps.',
-    registerUrl: 'https://www.nlbcuae.com/events',
-    image: '/images/events/roundtable.jpg',
+    image: '/images/events/nbc-generic.png',
   },
 ];

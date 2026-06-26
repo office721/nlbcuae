@@ -10,7 +10,10 @@ const time = d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' 
 const img = event.image ? href(event.image) : null;
 ---
 <a href={href(`/events/${event.slug}`)} class="ev">
-  <div class="ev__media" style={img ? `--img: url('${img}')` : undefined}>
+  <div class="ev__media">
+    {img
+      ? <img class="ev__img" src={img} alt={`${event.title} event`} loading="lazy" />
+      : <div class="ev__img ev__img--fallback"></div>}
     <span class="ev__date">
       <span class="ev__day">{day}</span>
       <span class="ev__month">{month}</span>
@@ -45,24 +48,25 @@ const img = event.image ? href(event.image) : null;
     border-color: transparent;
   }
 
-  .ev__media {
-    position: relative;
-    aspect-ratio: 16 / 10;
-    background-color: var(--blue);
-    background-image:
-      linear-gradient(180deg, rgba(10, 18, 40, 0.05) 40%, rgba(10, 18, 40, 0.35) 100%),
-      var(--img, linear-gradient(135deg, var(--blue), var(--blue-deep)));
-    background-size: cover;
-    background-position: center;
+  .ev__media { position: relative; aspect-ratio: 4 / 3; background: var(--blue); overflow: hidden; }
+  .ev__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s var(--ease); }
+  .ev:hover .ev__img { transform: scale(1.04); }
+  .ev__img--fallback { background: linear-gradient(135deg, var(--blue), var(--blue-deep)); }
+  .ev__media::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10, 18, 40, 0.12) 0%, transparent 30%, transparent 65%, rgba(10, 18, 40, 0.28) 100%);
+    pointer-events: none;
   }
-  .ev:hover .ev__media { background-size: 104%; }
 
   .ev__date {
     position: absolute;
     top: 14px;
     left: 14px;
-    width: 58px;
-    height: 58px;
+    z-index: 1;
+    width: 56px;
+    height: 56px;
     border-radius: var(--radius);
     background: var(--white);
     color: var(--blue);
@@ -73,13 +77,14 @@ const img = event.image ? href(event.image) : null;
     line-height: 1;
     box-shadow: var(--shadow-sm);
   }
-  .ev__day { font-size: 23px; font-weight: 700; }
+  .ev__day { font-size: 22px; font-weight: 700; }
   .ev__month { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 3px; font-weight: 600; }
 
   .ev__type {
     position: absolute;
     bottom: 14px;
     left: 14px;
+    z-index: 1;
     font-size: 10.5px;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -92,10 +97,7 @@ const img = event.image ? href(event.image) : null;
 
   .ev__body { padding: 22px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
   .ev__title { font-size: 19px; font-weight: 500; color: var(--ink); letter-spacing: -0.01em; line-height: 1.2; }
-  .ev__meta {
-    display: flex; align-items: center; gap: 6px;
-    font-size: 13px; color: var(--grey-400);
-  }
+  .ev__meta { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--grey-400); }
   .ev__pin { color: var(--orange); flex: none; }
   .ev__summary { font-size: 14.5px; line-height: 1.5; color: var(--ink); }
   .ev__more { font-size: 14px; font-weight: 600; color: var(--blue); margin-top: auto; padding-top: 6px; }
