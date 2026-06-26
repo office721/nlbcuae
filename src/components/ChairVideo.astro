@@ -1,0 +1,147 @@
+---
+import Container from './Container.astro';
+import { href } from '../lib/url';
+const mp4 = href('/videos/linda-chair.mp4');
+const poster = href('/videos/linda-chair-poster.jpg');
+---
+<section class="cv">
+  <Container>
+    <div class="cv__grid">
+      <div class="cv__text">
+        <p class="cv__eyebrow">Meet the Chair</p>
+        <h2 class="cv__title">
+          A new chapter, with <span class="serif">Linda</span> at the helm.
+        </h2>
+        <p>
+          Meet Linda Negerman, the new Chair of the Netherlands Business Council UAE. Linda has
+          been part of the NBC community for years, first as a member, then as a board member,
+          and now as Chair. She knows this community from the inside and brings that experience
+          with her into the role.
+        </p>
+        <p>
+          Her focus is on positive energy, meaningful connections, and a community where both
+          familiar and new faces feel welcome and at home.
+        </p>
+        <p class="cv__closing">We are looking forward to this new chapter, with Linda at the helm.</p>
+      </div>
+
+      <figure class="cv__media">
+        <video
+          id="chair-video"
+          class="cv__video"
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="metadata"
+          poster={poster}
+          aria-label="A message from Linda Negerman, Chair of the NBC"
+        >
+          <source src={mp4} type="video/mp4" />
+        </video>
+
+        <button class="cv__sound" id="cv-sound" type="button" aria-pressed="false" aria-label="Unmute video">
+          <svg class="cv__icon cv__icon--muted" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path fill="currentColor" d="M3 9v6h4l5 5V4L7 9H3zm13.5 3a4.5 4.5 0 0 0-2.5-4v8a4.5 4.5 0 0 0 2.5-4z" opacity=".0"/>
+            <path fill="currentColor" d="M3 9v6h4l5 5V4L7 9H3z"/>
+            <path fill="currentColor" d="m16.5 7.5 5 9m-5 0 5-9" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <svg class="cv__icon cv__icon--unmuted" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+            <path fill="currentColor" d="M3 9v6h4l5 5V4L7 9H3zm11 .17a3 3 0 0 1 0 5.66M16.5 6.5a6.5 6.5 0 0 1 0 11" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <path fill="currentColor" d="M3 9v6h4l5 5V4L7 9H3z"/>
+          </svg>
+          <span class="cv__sound-label">Unmute</span>
+        </button>
+      </figure>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .cv {
+    padding: clamp(56px, 8vw, 100px) 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--hairline);
+  }
+  .cv__grid {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: clamp(32px, 5vw, 72px);
+    align-items: center;
+  }
+  .cv__eyebrow {
+    font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--grey-400); font-weight: 600; margin-bottom: 20px;
+    display: inline-flex; align-items: center; gap: 12px;
+  }
+  .cv__eyebrow::before { content: ''; width: 30px; height: 2px; background: var(--orange); }
+  .cv__title {
+    font-size: clamp(30px, 3.6vw, 46px); line-height: 1.05; letter-spacing: -0.02em;
+    margin-bottom: 24px;
+  }
+  .cv__title .serif { color: var(--orange); }
+  .cv__text p { color: var(--ink); max-width: 540px; }
+  .cv__closing { font-weight: 500; }
+
+  .cv__media {
+    position: relative;
+    margin: 0 auto;
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    background: var(--blue-ink);
+    aspect-ratio: 9 / 16;
+    width: min(340px, 78vw);
+  }
+  .cv__video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+  .cv__sound {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px;
+    border: 0;
+    border-radius: 99px;
+    background: rgba(10, 18, 40, 0.62);
+    backdrop-filter: blur(6px);
+    color: #fff;
+    font-family: var(--font-sans);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s var(--ease), transform 0.15s var(--ease);
+  }
+  .cv__sound:hover { background: rgba(10, 18, 40, 0.82); transform: translateY(-1px); }
+  .cv__icon { display: block; }
+  .cv__icon--unmuted { display: none; }
+  .cv__sound[aria-pressed='true'] .cv__icon--muted { display: none; }
+  .cv__sound[aria-pressed='true'] .cv__icon--unmuted { display: block; }
+
+  @media (max-width: 860px) {
+    .cv__grid { grid-template-columns: 1fr; }
+    .cv__media { order: -1; }
+  }
+</style>
+
+<script>
+  const video = document.getElementById('chair-video') as HTMLVideoElement | null;
+  const btn = document.getElementById('cv-sound');
+  if (video && btn) {
+    const label = btn.querySelector('.cv__sound-label');
+    const sync = () => {
+      const muted = video.muted;
+      btn.setAttribute('aria-pressed', String(!muted));
+      btn.setAttribute('aria-label', muted ? 'Unmute video' : 'Mute video');
+      if (label) label.textContent = muted ? 'Unmute' : 'Mute';
+    };
+    btn.addEventListener('click', () => {
+      video.muted = !video.muted;
+      if (!video.muted) video.play().catch(() => {});
+      sync();
+    });
+    sync();
+  }
+</script>
