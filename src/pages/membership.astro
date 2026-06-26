@@ -1,7 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Container from '../components/Container.astro';
-import PageHeader from '../components/PageHeader.astro';
+import PageHero from '../components/PageHero.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import Button from '../components/Button.astro';
 import TestimonialCard from '../components/TestimonialCard.astro';
@@ -28,11 +28,12 @@ const steps = [
   { n: '03', t: 'Join the community', d: 'Get your welcome, your directory listing, and your first invitations.' },
 ];
 ---
-<BaseLayout title="Become a Member" description="Join 170+ Dutch businesses in the UAE. Five membership levels from AED 1,000 a year. Introductions, events, market knowledge, and a stronger voice.">
-  <PageHeader
+<BaseLayout navMode="overlay" title="Become a Member" description="Join 170+ Dutch businesses in the UAE. Five membership levels from AED 1,000 a year. Introductions, events, market knowledge, and a stronger voice.">
+  <PageHero
     eyebrow="Membership"
     title='Join the room where Dutch business <span class="serif">happens.</span>'
     lede={`Membership connects you to ${MEMBER_COUNT} Dutch businesses in the UAE, the Consul General, and the Dubai Chambers network.`}
+    image="/images/membership-hero.jpg"
   />
 
   <section class="why">

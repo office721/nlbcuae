@@ -1,18 +1,19 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Container from '../../components/Container.astro';
-import PageHeader from '../../components/PageHeader.astro';
+import PageHero from '../../components/PageHero.astro';
 import SectionHeading from '../../components/SectionHeading.astro';
 import EventCard from '../../components/EventCard.astro';
 import PastEventsGallery from '../../components/PastEventsGallery.astro';
 import { getUpcomingEvents } from '../../lib/events';
 const upcoming = await getUpcomingEvents();
 ---
-<BaseLayout title="Events" description="Networking nights, working breakfasts, roundtables, and the annual gala. See what is coming up at the Netherlands Business Council UAE.">
-  <PageHeader
+<BaseLayout navMode="overlay" title="Events" description="Networking nights, working breakfasts, roundtables, and the annual gala. See what is coming up at the Netherlands Business Council UAE.">
+  <PageHero
     eyebrow="What's on"
     title='Where the Dutch business community <span class="serif">meets.</span>'
     lede="We run more than 30 events a year, from informal networking to closed-door roundtables. Members get the right people in the room."
+    image="/images/events-hero.jpg"
   />
 
   <section class="ev-section">

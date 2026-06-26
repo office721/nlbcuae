@@ -22,3 +22,5 @@ dist/
 # Large source media (only the compressed web versions in public/ are committed)
 *.mov
 NBC Pics/
+/events header.jpeg
+/membership header.jpeg
