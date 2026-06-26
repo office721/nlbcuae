@@ -1,0 +1,179 @@
+---
+import Container from './Container.astro';
+import SectionHeading from './SectionHeading.astro';
+import { href } from '../lib/url';
+import { getGalleryEvents, galleryPhotos } from '../lib/gallery';
+const events = await getGalleryEvents();
+---
+<section class="gallery">
+  <Container>
+    <SectionHeading eyebrow="Looking back" title="Past events" />
+    <p class="gallery__intro">A look at recent NBC events. Tap any photo to view it full screen.</p>
+
+    <div class="gallery__events">
+      {events.map((ev) => (
+        <div class="gallery__event">
+          <header class="gallery__head">
+            <h3 class="gallery__title">{ev.title}</h3>
+            <span class="gallery__meta">
+              {ev.date && <span>{ev.date}</span>}
+              {ev.location && <span>{ev.location}</span>}
+              <span>{ev.photoCount} photos</span>
+            </span>
+          </header>
+          <ul class="gallery__strip" data-event={ev.slug}>
+            {galleryPhotos(ev).map((src, i) => (
+              <li class="gallery__item">
+                <button class="gallery__thumb" type="button" data-src={href(src)} data-event={ev.slug} aria-label={`Open ${ev.title} photo ${i + 1}`}>
+                  <img src={href(src)} alt={`${ev.title} — photo ${i + 1}`} loading="lazy" />
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </Container>
+
+  <div class="lb" id="gallery-lb" hidden>
+    <button class="lb__btn lb__close" id="lb-close" type="button" aria-label="Close">&times;</button>
+    <button class="lb__btn lb__nav lb__prev" id="lb-prev" type="button" aria-label="Previous photo">&#8249;</button>
+    <figure class="lb__stage">
+      <img class="lb__img" id="lb-img" alt="" />
+      <figcaption class="lb__count" id="lb-count"></figcaption>
+    </figure>
+    <button class="lb__btn lb__nav lb__next" id="lb-next" type="button" aria-label="Next photo">&#8250;</button>
+  </div>
+</section>
+
+<style>
+  .gallery { padding: clamp(56px, 8vw, 100px) 0; }
+  .gallery__intro { margin: 20px 0 0; color: var(--grey-400); font-size: 16px; }
+  .gallery__events { display: flex; flex-direction: column; gap: clamp(36px, 5vw, 56px); margin-top: 48px; }
+
+  .gallery__head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    gap: 16px; flex-wrap: wrap; margin-bottom: 18px;
+  }
+  .gallery__title { font-size: clamp(20px, 2.4vw, 26px); font-weight: 500; letter-spacing: -0.01em; }
+  .gallery__meta { display: flex; gap: 14px; font-size: 13px; color: var(--grey-400); flex-wrap: wrap; }
+  .gallery__meta span { display: inline-flex; align-items: center; }
+  .gallery__meta span + span::before { content: '·'; margin-right: 14px; color: var(--grey-200); }
+
+  .gallery__strip {
+    list-style: none;
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .gallery__strip::-webkit-scrollbar { display: none; }
+  .gallery__item { flex: 0 0 auto; scroll-snap-align: start; }
+  .gallery__thumb {
+    display: block; padding: 0; border: 0; cursor: pointer; background: var(--blue-ink);
+    width: clamp(150px, 22vw, 200px);
+    aspect-ratio: 4 / 5;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .gallery__thumb img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 0.3s var(--ease), opacity 0.2s var(--ease);
+  }
+  .gallery__thumb:hover img { transform: scale(1.05); }
+  .gallery__thumb:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; }
+
+  /* Lightbox */
+  .lb {
+    position: fixed; inset: 0; z-index: 200;
+    display: flex; align-items: center; justify-content: center;
+    background: rgba(8, 14, 30, 0.92);
+    backdrop-filter: blur(4px);
+    padding: clamp(16px, 4vw, 48px);
+  }
+  .lb[hidden] { display: none; }
+  .lb__stage { margin: 0; display: flex; flex-direction: column; align-items: center; gap: 14px; max-width: 100%; }
+  .lb__img {
+    max-width: min(90vw, 560px); max-height: 82vh; width: auto; height: auto;
+    border-radius: var(--radius-lg); box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    object-fit: contain;
+  }
+  .lb__count { color: rgba(255, 255, 255, 0.7); font-size: 13px; letter-spacing: 0.04em; }
+  .lb__btn {
+    background: rgba(255, 255, 255, 0.12); color: #fff; border: 0; cursor: pointer;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    transition: background 0.15s var(--ease);
+  }
+  .lb__btn:hover { background: rgba(255, 255, 255, 0.25); }
+  .lb__close { position: absolute; top: 18px; right: 18px; width: 44px; height: 44px; font-size: 26px; line-height: 1; }
+  .lb__nav { width: 48px; height: 48px; font-size: 30px; line-height: 1; flex: none; }
+  .lb__prev { margin-right: clamp(8px, 2vw, 24px); }
+  .lb__next { margin-left: clamp(8px, 2vw, 24px); }
+
+  @media (max-width: 600px) {
+    .lb__nav { width: 42px; height: 42px; }
+    .lb { padding: 12px; }
+  }
+</style>
+
+<script>
+  const lb = document.getElementById('gallery-lb');
+  const lbImg = document.getElementById('lb-img') as HTMLImageElement | null;
+  const lbCount = document.getElementById('lb-count');
+  if (lb && lbImg && lbCount) {
+    let current: string[] = [];
+    let idx = 0;
+
+    const show = () => {
+      lbImg.src = current[idx];
+      lbCount.textContent = `${idx + 1} / ${current.length}`;
+    };
+    const open = (eventSlug: string, src: string) => {
+      const thumbs = Array.from(
+        document.querySelectorAll(`.gallery__thumb[data-event="${eventSlug}"]`),
+      ) as HTMLElement[];
+      current = thumbs.map((t) => t.dataset.src || '');
+      idx = Math.max(0, current.indexOf(src));
+      lb.removeAttribute('hidden');
+      document.body.style.overflow = 'hidden';
+      show();
+    };
+    const close = () => {
+      lb.setAttribute('hidden', '');
+      document.body.style.overflow = '';
+    };
+    const step = (d: number) => {
+      idx = (idx + d + current.length) % current.length;
+      show();
+    };
+
+    document.querySelectorAll('.gallery__thumb').forEach((t) => {
+      t.addEventListener('click', () => {
+        const el = t as HTMLElement;
+        open(el.dataset.event || '', el.dataset.src || '');
+      });
+    });
+    document.getElementById('lb-close')?.addEventListener('click', close);
+    document.getElementById('lb-prev')?.addEventListener('click', () => step(-1));
+    document.getElementById('lb-next')?.addEventListener('click', () => step(1));
+    lb.addEventListener('click', (e) => { if (e.target === lb) close(); });
+    document.addEventListener('keydown', (e) => {
+      if (lb.hasAttribute('hidden')) return;
+      if (e.key === 'Escape') close();
+      else if (e.key === 'ArrowLeft') step(-1);
+      else if (e.key === 'ArrowRight') step(1);
+    });
+    // Touch swipe
+    let x0: number | null = null;
+    lb.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; }, { passive: true });
+    lb.addEventListener('touchend', (e) => {
+      if (x0 === null) return;
+      const dx = e.changedTouches[0].clientX - x0;
+      if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1);
+      x0 = null;
+    });
+  }
+</script>

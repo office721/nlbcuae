@@ -5,6 +5,7 @@ import SectionHeading from '../components/SectionHeading.astro';
 import Button from '../components/Button.astro';
 import Hero from '../components/Hero.astro';
 import ChairVideo from '../components/ChairVideo.astro';
+import PastEventsGallery from '../components/PastEventsGallery.astro';
 import PillarCard from '../components/PillarCard.astro';
 import EventCard from '../components/EventCard.astro';
 import ArticleCard from '../components/ArticleCard.astro';
@@ -46,6 +47,9 @@ const members = await getCorporateMembers();
       </div>
     </Container>
   </section>
+
+  <!-- 02b · Past events gallery -->
+  <PastEventsGallery />
 
   <!-- 03 · Upcoming events -->
   <section class="section section--alt">

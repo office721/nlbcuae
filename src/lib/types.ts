@@ -65,3 +65,11 @@ export interface MembershipTier {
   applyUrl: string;
   featured?: boolean;
 }
+
+export interface GalleryEvent {
+  slug: string;
+  title: string;
+  date?: string;
+  location?: string;
+  photoCount: number;
+}
