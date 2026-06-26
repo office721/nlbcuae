@@ -1,0 +1,23 @@
+---
+interface Props { attribution?: string; }
+const { attribution } = Astro.props;
+---
+<figure class="pq">
+  <blockquote class="pq__quote serif"><slot /></blockquote>
+  {attribution && <figcaption class="pq__attr">{attribution}</figcaption>}
+</figure>
+
+<style>
+  .pq { margin: clamp(40px, 6vw, 64px) 0; max-width: 900px; }
+  .pq__quote {
+    font-size: clamp(28px, 4vw, 52px);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+  }
+  .pq__attr {
+    font-family: var(--font-sans);
+    font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--grey-400); margin-top: 20px; font-weight: 500;
+  }
+</style>

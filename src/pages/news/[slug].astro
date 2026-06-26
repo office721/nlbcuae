@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Container from '../../components/Container.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import SectionHeading from '../../components/SectionHeading.astro';
+import { href } from '../../lib/url';
+import { getAllArticles, getRelatedArticles } from '../../lib/articles';
+import type { Article } from '../../lib/types';
+
+export async function getStaticPaths() {
+  const articles = await getAllArticles();
+  return articles.map((article) => ({ params: { slug: article.slug }, props: { article } }));
+}
+
+interface Props { article: Article; }
+const { article } = Astro.props;
+const date = new Date(article.publishedAt).toLocaleDateString('en-GB', {
+  day: 'numeric', month: 'long', year: 'numeric',
+});
+const related = await getRelatedArticles(article.slug, 3);
+---
+<BaseLayout title={article.title} description={article.excerpt}>
+  <article class="post">
+    <header class="post__head">
+      <Container width="narrow">
+        <a href={href('/news')} class="post__back">← All news</a>
+        <span class="post__cat">{article.category}</span>
+        <h1 class="post__title">{article.title}</h1>
+        <p class="post__date">{date}</p>
+      </Container>
+    </header>
+
+    <div class="post__body">
+      <Container width="narrow">
+        <p class="post__lead">{article.excerpt}</p>
+        {article.body.split('\n').filter(Boolean).map((para) => <p>{para}</p>)}
+      </Container>
+    </div>
+  </article>
+
+  {related.length > 0 && (
+    <section class="related">
+      <Container>
+        <SectionHeading eyebrow="Keep reading" title="More from the council" />
+        <div class="related__grid">
+          {related.map((a) => <ArticleCard article={a} />)}
+        </div>
+      </Container>
+    </section>
+  )}
+</BaseLayout>
+
+<style>
+  .post__head { background: var(--paper); padding: clamp(40px, 6vw, 72px) 0 clamp(24px, 4vw, 40px); border-bottom: 1px solid var(--hairline); }
+  .post__back { font-size: 14px; font-weight: 500; color: var(--blue); display: inline-block; margin-bottom: 28px; }
+  .post__cat { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange); font-weight: 700; }
+  .post__title { margin: 12px 0 16px; }
+  .post__date { color: var(--grey-400); font-size: 15px; }
+  .post__body { padding: clamp(40px, 6vw, 64px) 0; }
+  .post__lead { font-size: clamp(19px, 2vw, 22px); line-height: 1.55; color: var(--ink); margin-bottom: 24px; }
+  .related { padding: clamp(48px, 7vw, 80px) 0; background: var(--paper); border-top: 1px solid var(--hairline); }
+  .related__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+  @media (max-width: 980px) { .related__grid { grid-template-columns: 1fr; } }
+</style>

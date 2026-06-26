@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Container from '../../components/Container.astro';
+import Button from '../../components/Button.astro';
+import { href } from '../../lib/url';
+import { getAllEvents } from '../../lib/events';
+import type { NbcEvent } from '../../lib/types';
+
+export async function getStaticPaths() {
+  const events = await getAllEvents();
+  return events.map((event) => ({ params: { slug: event.slug }, props: { event } }));
+}
+
+interface Props { event: NbcEvent; }
+const { event } = Astro.props;
+const start = new Date(event.startsAt);
+const dateLong = start.toLocaleDateString('en-GB', {
+  weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
+});
+const time = start.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+const isPast = start.getTime() < Date.now();
+---
+<BaseLayout title={event.title} description={event.summary}>
+  <article class="event">
+    <header class="event__head">
+      <Container width="narrow">
+        <a href={href('/events')} class="event__back">← All events</a>
+        <span class="event__type">{event.type}</span>
+        <h1 class="event__title">{event.title}</h1>
+        <dl class="event__meta">
+          <div><dt>Date</dt><dd>{dateLong}</dd></div>
+          <div><dt>Time</dt><dd>{time}</dd></div>
+          <div><dt>Location</dt><dd>{event.location}</dd></div>
+        </dl>
+      </Container>
+    </header>
+
+    <div class="event__body">
+      <Container width="narrow">
+        <p class="event__summary">{event.summary}</p>
+        {event.body.split('\n').filter(Boolean).map((para) => <p>{para}</p>)}
+
+        <div class="event__cta">
+          {isPast ? (
+            <p class="event__note">This event has already taken place. See our upcoming events for what is next.</p>
+          ) : (
+            <Button href={event.registerUrl ?? href('/contact')} variant="primary">Register for this event →</Button>
+          )}
+        </div>
+      </Container>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .event__head { background: var(--paper); padding: clamp(40px, 6vw, 72px) 0 clamp(28px, 4vw, 44px); border-bottom: 1px solid var(--hairline); }
+  .event__back { font-size: 14px; font-weight: 500; color: var(--blue); display: inline-block; margin-bottom: 28px; }
+  .event__type { font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange); font-weight: 700; }
+  .event__title { margin: 12px 0 28px; }
+  .event__meta { display: flex; flex-wrap: wrap; gap: 28px; }
+  .event__meta dt { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--grey-400); font-weight: 600; margin-bottom: 4px; }
+  .event__meta dd { font-size: 16px; font-weight: 500; }
+  .event__body { padding: clamp(40px, 6vw, 72px) 0; }
+  .event__summary { font-size: clamp(19px, 2vw, 22px); line-height: 1.5; color: var(--ink); margin-bottom: 24px; }
+  .event__cta { margin-top: 40px; }
+  .event__note { color: var(--grey-400); font-size: 16px; }
+</style>

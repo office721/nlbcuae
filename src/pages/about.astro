@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/Container.astro';
+import PageHeader from '../components/PageHeader.astro';
+import PullQuote from '../components/PullQuote.astro';
+import PillarCard from '../components/PillarCard.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Button from '../components/Button.astro';
+import { href } from '../lib/url';
+import { getPillars } from '../lib/pillars';
+const pillars = await getPillars();
+---
+<BaseLayout title="About" description="The Netherlands Business Council UAE has connected Dutch business with the Emirates since 1997. A non-profit, member-led organisation in Dubai.">
+  <PageHeader
+    eyebrow="Who we are"
+    title='A council connecting <span class="serif">two business cultures.</span>'
+    lede="The Netherlands Business Council UAE has linked Dutch business with the Emirates since 1997. We are a non-profit, member-led organisation based in Dubai."
+  />
+
+  <section class="prose-section">
+    <Container width="narrow">
+      <p class="prose-lead">
+        For nearly three decades the council has helped Dutch companies do business in the UAE.
+        We work alongside the Dutch Consul General in Dubai and the Dubai Chambers network, and we
+        are recognised as the representative body for Dutch business in Dubai and the Northern
+        Emirates.
+      </p>
+      <p>
+        Our members range from well-known Dutch companies to SMEs and startups building their
+        first presence in the region. Whatever their size, members get the same thing from NBC.
+        The right introductions, useful market knowledge, and a voice with local and Dutch
+        authorities.
+      </p>
+
+      <PullQuote attribution="The council, in one sentence">
+        We connect people and knowledge between two business cultures.
+      </PullQuote>
+    </Container>
+  </section>
+
+  <section class="split">
+    <Container>
+      <div class="split__grid">
+        <div class="split__card">
+          <h2 class="split__title">Our mission</h2>
+          <p>
+            We make business between the Netherlands and the UAE easier, faster, and more
+            successful for our members and for the wider Dutch business community.
+          </p>
+        </div>
+        <div class="split__card">
+          <h2 class="split__title">Our vision</h2>
+          <p>
+            A future where Dutch business and the UAE work as one connected community, sharing
+            knowledge, talent, and trust across two regions.
+          </p>
+        </div>
+      </div>
+    </Container>
+  </section>
+
+  <section class="pillars-section">
+    <Container>
+      <SectionHeading eyebrow="What we stand for" title="Four pillars guide everything we do" />
+      <div class="pillars">
+        {pillars.map((p) => <PillarCard pillar={p} />)}
+      </div>
+    </Container>
+  </section>
+
+  <section class="partners">
+    <Container>
+      <div class="partners__grid">
+        <div>
+          <SectionHeading eyebrow="Who we work with" title="Backed by the right partners" />
+          <p class="partners__text">
+            We work closely with the Dutch Consul General in Dubai and the Dubai Chambers network.
+            That gives our members direct access to the people and institutions that matter.
+          </p>
+          <Button href={href('/board')} variant="ghost">Meet the board →</Button>
+        </div>
+        <ul class="partners__list">
+          <li>Dutch Consul General, Dubai</li>
+          <li>Dubai Chambers</li>
+          <li>NLinBusiness</li>
+          <li>Partner business councils across the UAE</li>
+        </ul>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>
+
+<style>
+  .prose-section { padding: clamp(48px, 7vw, 80px) 0; }
+  .prose-lead { font-size: clamp(19px, 2vw, 22px); line-height: 1.55; color: var(--ink); margin-bottom: 24px; }
+  .prose-section :global(p) { max-width: 100%; }
+
+  .split { padding: 0 0 clamp(48px, 7vw, 80px); }
+  .split__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .split__card {
+    background: var(--white); border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg); padding: clamp(28px, 4vw, 44px);
+  }
+  .split__card p { margin: 0; }
+  .split__title { font-size: 24px; margin-bottom: 14px; }
+  .split__card:first-child { border-top: 3px solid var(--orange); }
+  .split__card:last-child { border-top: 3px solid var(--blue); }
+
+  .pillars-section { padding: clamp(56px, 8vw, 100px) 0; background: var(--paper); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+  .pillars { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 48px; }
+
+  .partners { padding: clamp(56px, 8vw, 100px) 0; }
+  .partners__grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(32px, 5vw, 64px); align-items: center; }
+  .partners__text { margin: 24px 0 28px; max-width: 460px; }
+  .partners__list { list-style: none; display: flex; flex-direction: column; gap: 0; }
+  .partners__list li {
+    padding: 16px 0 16px 26px; border-top: 1px solid var(--hairline);
+    font-size: 17px; position: relative;
+  }
+  .partners__list li:last-child { border-bottom: 1px solid var(--hairline); }
+  .partners__list li::before { content: '—'; position: absolute; left: 0; color: var(--orange); }
+
+  @media (max-width: 900px) {
+    .split__grid { grid-template-columns: 1fr; }
+    .pillars { grid-template-columns: repeat(2, 1fr); }
+    .partners__grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) { .pillars { grid-template-columns: 1fr; } }
+</style>

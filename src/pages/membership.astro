@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Container from '../components/Container.astro';
+import PageHeader from '../components/PageHeader.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import Button from '../components/Button.astro';
+import { href } from '../lib/url';
+import { MEMBER_COUNT } from '../lib/members';
+
+const benefits = [
+  { title: 'The right introductions', body: 'Meet founders, country heads, and managers who already do business in the UAE.' },
+  { title: 'Events all year', body: 'More than 30 events a year, from networking nights to closed-door roundtables.' },
+  { title: 'Market knowledge', body: 'Practical insight on licensing, hiring, and market entry before you hit obstacles.' },
+  { title: 'A stronger voice', body: 'We represent Dutch business interests with UAE and Dutch authorities. You do not lobby alone.' },
+  { title: 'Direct access', body: 'A direct line to the Dutch Consul General in Dubai and the Dubai Chambers network.' },
+  { title: 'Visibility', body: 'A place in our member directory and the chance to be featured across our channels.' },
+];
+
+const tiers = [
+  { name: 'Individual', who: 'For professionals with a Netherlands connection.', flag: true },
+  { name: 'SME & Startup', who: 'For small and growing companies building a UAE presence.', flag: true },
+  { name: 'Corporate', who: 'For established companies that want a full seat at the table.', flag: true },
+];
+
+const steps = [
+  { n: '01', t: 'Get in touch', d: 'Tell us about your company and what you are looking for.' },
+  { n: '02', t: 'Choose your level', d: 'We help you pick the membership that fits.' },
+  { n: '03', t: 'Join the community', d: 'Get your welcome, your directory listing, and your first invitations.' },
+];
+---
+<BaseLayout title="Become a Member" description="Join 170+ Dutch businesses already in the UAE. Membership gives you introductions, events, market knowledge, and a stronger voice.">
+  <PageHeader
+    eyebrow="Membership"
+    title='Join the room where Dutch business <span class="serif">happens.</span>'
+    lede={`Membership connects you to ${MEMBER_COUNT} Dutch businesses in the UAE, the Consul General, and the Dubai Chambers network.`}
+  />
+
+  <section class="why">
+    <Container>
+      <SectionHeading eyebrow="Why join" title="What members get" />
+      <div class="why__grid">
+        {benefits.map((b) => (
+          <article class="benefit">
+            <h3 class="benefit__title">{b.title}</h3>
+            <p class="benefit__body">{b.body}</p>
+          </article>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <section class="tiers">
+    <Container>
+      <SectionHeading eyebrow="Who it is for" title="Membership levels" />
+      <p class="tiers__note">
+        Final levels and pricing are confirmed with the office. The list below shows the kinds of
+        membership available today.
+      </p>
+      <div class="tiers__grid">
+        {tiers.map((t) => (
+          <article class="tier">
+            <h3 class="tier__name">{t.name}</h3>
+            <p class="tier__who">{t.who}</p>
+            {t.flag && <span class="tier__flag">Details to be confirmed</span>}
+          </article>
+        ))}
+      </div>
+    </Container>
+  </section>
+
+  <section class="how">
+    <Container>
+      <SectionHeading eyebrow="How to join" title="Three simple steps" />
+      <ol class="how__list">
+        {steps.map((s) => (
+          <li class="step">
+            <span class="step__n serif">{s.n}</span>
+            <div>
+              <h3 class="step__t">{s.t}</h3>
+              <p class="step__d">{s.d}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </Container>
+  </section>
+
+  <section class="join-cta">
+    <Container>
+      <div class="join-cta__inner">
+        <h2 class="join-cta__title">Ready to join?</h2>
+        <p class="join-cta__text">Tell us about your company and we will guide you through the rest.</p>
+        <Button href={href('/contact')} variant="primary">Get in touch →</Button>
+      </div>
+    </Container>
+  </section>
+</BaseLayout>
+
+<style>
+  .why { padding: clamp(48px, 7vw, 90px) 0; }
+  .why__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 44px; }
+  .benefit { background: var(--white); border: 1px solid var(--hairline); border-top: 3px solid var(--orange); border-radius: var(--radius-lg); padding: 28px; }
+  .benefit__title { font-size: 19px; font-weight: 500; margin-bottom: 10px; }
+  .benefit__body { font-size: 15px; line-height: 1.55; color: var(--ink); }
+
+  .tiers { padding: clamp(48px, 7vw, 90px) 0; background: var(--paper); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+  .tiers__note { margin: 20px 0 40px; color: var(--grey-400); font-size: 15px; max-width: 560px; }
+  .tiers__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .tier { background: var(--white); border: 1px solid var(--hairline); border-radius: var(--radius-lg); padding: 32px; }
+  .tier__name { font-size: 24px; margin-bottom: 10px; }
+  .tier__who { font-size: 15px; color: var(--ink); margin-bottom: 18px; }
+  .tier__flag { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-400); font-weight: 600; }
+
+  .how { padding: clamp(48px, 7vw, 90px) 0; }
+  .how__list { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 44px; }
+  .step { display: flex; gap: 16px; align-items: flex-start; }
+  .step__n { font-size: 30px; color: var(--orange); line-height: 1; }
+  .step__t { font-size: 19px; font-weight: 500; margin-bottom: 8px; }
+  .step__d { font-size: 15px; line-height: 1.55; color: var(--ink); }
+
+  .join-cta { padding: 0 0 clamp(56px, 8vw, 100px); }
+  .join-cta__inner { background: var(--blue); color: #fff; border-radius: var(--radius-xl); padding: clamp(40px, 6vw, 72px); text-align: center; }
+  .join-cta__title { color: #fff; margin-bottom: 12px; }
+  .join-cta__text { color: rgba(255,255,255,.85); margin: 0 auto 28px; max-width: 460px; }
+
+  @media (max-width: 900px) {
+    .why__grid, .tiers__grid, .how__list { grid-template-columns: 1fr; }
+  }
+</style>

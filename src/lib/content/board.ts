@@ -1,10 +1,20 @@
 import type { BoardMember } from '../types';
 
 /**
- * NBC board members.
- * Populated with the real current board in Task 7 (pulled from the existing
- * site). Any field that cannot be sourced cleanly is flagged with TODO for NBC.
+ * NBC board and team. Names and roles from the current site
+ * (nlbcuae.com/board-and-team). Photos to be supplied by NBC; cards fall back
+ * to initials until then.
  */
 export const boardMembers: BoardMember[] = [
-  { name: 'TODO: Board member', role: 'Chair', company: 'TODO' },
+  { name: 'Linda Negerman', role: 'Chair' },
+  { name: 'Melvin Visser', role: 'Vice Chair & Director of Marketing' },
+  { name: 'Kamran Zafar', role: 'Treasurer' },
+  { name: 'Sonia Harjani', role: 'Director of Technology' },
+  { name: 'Husam Abdel Atty', role: 'Director of Member Engagement' },
+  { name: 'Damian Strauss', role: 'Director of Partnerships' },
+];
+
+export const teamMembers: BoardMember[] = [
+  { name: 'Margot Willemstijn', role: 'Executive Director' },
+  { name: 'Neil Martinez', role: 'Administrative Support Officer' },
 ];

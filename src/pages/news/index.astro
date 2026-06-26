@@ -1,0 +1,30 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Container from '../../components/Container.astro';
+import PageHeader from '../../components/PageHeader.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import { getAllArticles } from '../../lib/articles';
+const articles = await getAllArticles();
+---
+<BaseLayout title="News" description="News, events, and insight from the Netherlands Business Council UAE and the Dutch business community in the Emirates.">
+  <PageHeader
+    eyebrow="News & insight"
+    title='From the <span class="serif">council.</span>'
+    lede="Updates from NBC and the Dutch business community in the UAE. Events, member news, and market insight."
+  />
+
+  <section class="news">
+    <Container>
+      <div class="news__grid">
+        {articles.map((a) => <ArticleCard article={a} />)}
+      </div>
+    </Container>
+  </section>
+</BaseLayout>
+
+<style>
+  .news { padding: clamp(48px, 7vw, 90px) 0; }
+  .news__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media (max-width: 980px) { .news__grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px) { .news__grid { grid-template-columns: 1fr; } }
+</style>
