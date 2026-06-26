@@ -1,0 +1,48 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  align?: 'left' | 'center';
+  tone?: 'dark' | 'light';
+  class?: string;
+}
+const { eyebrow, title, align = 'left', tone = 'dark', class: cls = '' } = Astro.props;
+---
+<div class={`sh sh--${align} sh--${tone} ${cls}`}>
+  {eyebrow && <span class="eyebrow sh__eyebrow">{eyebrow}</span>}
+  <h2 class="sh__title" set:html={title} />
+</div>
+
+<style>
+  .sh {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 760px;
+  }
+  .sh--center {
+    align-items: center;
+    text-align: center;
+    margin-inline: auto;
+  }
+  .sh__eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .sh--dark .sh__eyebrow::before {
+    content: '';
+    width: 30px;
+    height: 2px;
+    background: var(--orange);
+  }
+  .sh--light .sh__title {
+    color: #fff;
+  }
+  .sh--light .sh__eyebrow {
+    color: var(--orange);
+  }
+  .sh__title :global(.serif) {
+    color: var(--orange);
+  }
+</style>

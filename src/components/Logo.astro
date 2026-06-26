@@ -1,0 +1,48 @@
+---
+/**
+ * NBC logo — three forward-leaning orange bars + wordmark.
+ * Bars echo the UAE Nation Brand. Paths from nbc_brand_book_MV2.html.
+ */
+interface Props {
+  variant?: 'horizontal' | 'stacked' | 'mark';
+  tone?: 'dark' | 'light';
+  height?: number;
+  class?: string;
+}
+const { variant = 'horizontal', tone = 'dark', height = 40, class: cls = '' } = Astro.props;
+const wordmarkFill = tone === 'light' ? '#FFFFFF' : '#22478B';
+const label = 'Netherlands Business Council UAE';
+---
+{variant === 'mark' && (
+  <svg class={cls} height={height} viewBox="0 0 200 200" role="img" aria-label={label} xmlns="http://www.w3.org/2000/svg">
+    <g fill="#FF9B00">
+      <g transform="translate(20, 35)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+      <g transform="translate(70, 27)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+      <g transform="translate(120, 19)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+    </g>
+  </svg>
+)}
+
+{variant === 'horizontal' && (
+  <svg class={cls} height={height} viewBox="0 0 580 150" role="img" aria-label={label} xmlns="http://www.w3.org/2000/svg">
+    <g fill="#FF9B00">
+      <g transform="translate(0, 14)"><path d="M 0,110 L 20,110 Q 25,110 26.1,105.1 L 50,0 L 30,0 Q 25,0 23.9,4.9 Z"/></g>
+      <g transform="translate(42, 7)"><path d="M 0,110 L 20,110 Q 25,110 26.1,105.1 L 50,0 L 30,0 Q 25,0 23.9,4.9 Z"/></g>
+      <g transform="translate(84, 0)"><path d="M 0,110 L 20,110 Q 25,110 26.1,105.1 L 50,0 L 30,0 Q 25,0 23.9,4.9 Z"/></g>
+    </g>
+    <text x="150" y="62" font-family="Geist, system-ui, sans-serif" font-size="26" font-weight="650" letter-spacing="3" fill={wordmarkFill}>NETHERLANDS</text>
+    <text x="150" y="98" font-family="Geist, system-ui, sans-serif" font-size="26" font-weight="650" letter-spacing="3" fill={wordmarkFill}>BUSINESS COUNCIL UAE</text>
+  </svg>
+)}
+
+{variant === 'stacked' && (
+  <svg class={cls} height={height} viewBox="0 0 500 380" role="img" aria-label={label} xmlns="http://www.w3.org/2000/svg">
+    <g fill="#FF9B00">
+      <g transform="translate(170, 76)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+      <g transform="translate(220, 68)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+      <g transform="translate(270, 60)"><path d="M 0,130 L 24,130 Q 30,130 31.35,124.15 L 60,0 L 36,0 Q 30,0 28.65,5.85 Z"/></g>
+    </g>
+    <text x="250" y="262" text-anchor="middle" font-family="Geist, system-ui, sans-serif" font-size="24" font-weight="650" letter-spacing="3.5" fill={wordmarkFill}>NETHERLANDS</text>
+    <text x="250" y="296" text-anchor="middle" font-family="Geist, system-ui, sans-serif" font-size="24" font-weight="650" letter-spacing="3.5" fill={wordmarkFill}>BUSINESS COUNCIL UAE</text>
+  </svg>
+)}
