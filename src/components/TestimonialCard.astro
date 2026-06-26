@@ -26,6 +26,11 @@ const initials = item.name.split(' ').map((n) => n[0]).slice(0, 2).join('');
     padding: 28px;
     height: 100%;
   }
+  @media (max-width: 600px) {
+    .t { padding: 20px; gap: 16px; }
+    .t__quote { font-size: 15px; line-height: 1.55; }
+    .t__quote::before { font-size: 38px; margin-bottom: 8px; }
+  }
   .t__quote {
     font-size: 16px;
     line-height: 1.6;

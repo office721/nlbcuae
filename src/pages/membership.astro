@@ -144,4 +144,25 @@ const steps = [
     .why__grid, .how__list, .say__grid { grid-template-columns: 1fr; }
   }
   @media (max-width: 560px) { .tiers__grid { grid-template-columns: 1fr; } }
+  /* Compact secondary cards on phones so sections fit the screen */
+  @media (max-width: 600px) {
+    .why, .tiers, .how, .say { padding: 40px 0; }
+    .why__grid { gap: 12px; margin-top: 26px; }
+    .benefit { padding: 18px 18px; border-radius: var(--radius); }
+    .benefit__title { font-size: 16px; margin-bottom: 5px; }
+    .benefit__body { font-size: 14px; line-height: 1.5; }
+    .tiers__grid { gap: 12px; }
+    .tiers__note { margin: 14px 0 26px; }
+    .tier { padding: 20px 18px; }
+    .tier__name { font-size: 18px; margin-bottom: 6px; }
+    .tier__price { font-size: 19px; margin-bottom: 12px; }
+    .tier__who { font-size: 13.5px; margin-bottom: 16px; }
+    .how__list { gap: 16px; margin-top: 26px; }
+    .step__n { font-size: 24px; }
+    .step__t { font-size: 16px; margin-bottom: 4px; }
+    .step__d { font-size: 14px; }
+    .say__grid { gap: 12px; margin-top: 26px; }
+    .join-cta { padding: 40px 0 52px; }
+    .join-cta__inner { padding: 32px 24px; }
+  }
 </style>

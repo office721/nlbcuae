@@ -125,5 +125,15 @@ const pillars = await getPillars();
     .pillars { grid-template-columns: repeat(2, 1fr); }
     .partners__grid { grid-template-columns: 1fr; }
   }
-  @media (max-width: 560px) { .pillars { grid-template-columns: 1fr; } }
+  @media (max-width: 600px) {
+    .pillars { grid-template-columns: 1fr; gap: 18px; margin-top: 28px; }
+    .prose-section { padding: 36px 0; }
+    .prose-lead { font-size: 17px; }
+    .split { padding: 0 0 36px; }
+    .split__card { padding: 22px; }
+    .split__title { font-size: 19px; margin-bottom: 10px; }
+    .pillars-section, .partners { padding: 44px 0; }
+    .partners__text { margin: 18px 0 22px; }
+    .partners__list li { font-size: 15.5px; padding: 13px 0 13px 24px; }
+  }
 </style>

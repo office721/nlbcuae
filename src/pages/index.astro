@@ -144,7 +144,12 @@ const members = await getCorporateMembers();
     .ev-grid > :global(.ev),
     .art-grid > :global(.art) { flex: 0 0 80%; scroll-snap-align: start; }
   }
-  @media (max-width: 560px) {
-    .pillars { grid-template-columns: 1fr; }
+  @media (max-width: 600px) {
+    .section { padding: 44px 0; }
+    .section__lede { font-size: 16px; margin-top: 16px; }
+    .section__head { margin-bottom: 26px; }
+    .pillars { grid-template-columns: 1fr; gap: 16px; margin-top: 30px; }
+    .directory { margin-bottom: 28px; }
+    .wall-wrap { margin-top: 0; }
   }
 </style>
