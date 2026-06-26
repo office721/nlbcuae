@@ -9,6 +9,7 @@ dist/
 .env
 .env.*
 !.env.example
+.gittoken
 
 # Brainstorm working files (local only)
 .superpowers/

@@ -39,11 +39,13 @@ a {
   text-decoration: none;
 }
 
-/* Italic serif accent — used for emphasis words, numbers, pull quotes */
+/* Accent — same Geist typeface as everything else, set in the brand orange.
+   (Replaced the old italic serif treatment.) */
 .serif {
-  font-family: var(--font-serif);
-  font-style: italic;
-  font-weight: 400;
+  font-family: var(--font-sans);
+  font-style: normal;
+  font-weight: 600;
+  color: var(--orange);
 }
 
 /* Headings — scale from the brand book */
