@@ -60,6 +60,12 @@ const { members } = Astro.props;
     transition: color 0.15s var(--ease);
   }
   .wall__cell:hover span { color: var(--blue); }
-  .wall__cell img { max-height: 44px; width: auto; object-fit: contain; filter: grayscale(1); opacity: 0.8; }
-  .wall__cell:hover img { filter: none; opacity: 1; }
+  .wall__cell img {
+    max-height: 52px;
+    max-width: 82%;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.15s var(--ease);
+  }
+  .wall__cell:hover img { transform: scale(1.05); }
 </style>

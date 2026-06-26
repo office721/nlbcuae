@@ -9,7 +9,7 @@ import type { Member } from '../types';
  */
 export const corporateMembers: Member[] = [
   { name: 'Air France-KLM', logo: '/images/members/air-france-klm.svg' },
-  { name: 'Albwardy Damen', logo: '/images/members/albwardy-damen.png' },
+  { name: 'Albwardy Damen' },
   { name: 'B2L Cargo Care' },
   { name: 'Boon Edam', logo: '/images/members/boon-edam.svg' },
   { name: 'Boskalis', logo: '/images/members/boskalis.svg' },
