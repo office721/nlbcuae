@@ -131,7 +131,7 @@ const members = await getCorporateMembers();
   .who__photo { margin: 0; }
   .who__photo img {
     width: 100%;
-    aspect-ratio: 16 / 10;
+    height: clamp(240px, 28vw, 360px);
     object-fit: cover;
     border-radius: var(--radius-xl);
     box-shadow: var(--shadow-lg);
