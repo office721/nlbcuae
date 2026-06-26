@@ -1,0 +1,67 @@
+---
+import type { NbcEvent } from '../lib/types';
+import { href } from '../lib/url';
+interface Props { event: NbcEvent; }
+const { event } = Astro.props;
+const d = new Date(event.startsAt);
+const day = d.toLocaleDateString('en-GB', { day: '2-digit' });
+const month = d.toLocaleDateString('en-GB', { month: 'short' });
+const time = d.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit' });
+---
+<a href={href(`/events/${event.slug}`)} class="ev">
+  <div class="ev__date">
+    <span class="ev__day">{day}</span>
+    <span class="ev__month">{month}</span>
+  </div>
+  <div class="ev__body">
+    <span class="ev__type">{event.type}</span>
+    <h3 class="ev__title">{event.title}</h3>
+    <p class="ev__meta">{event.location} · {time}</p>
+    <p class="ev__summary">{event.summary}</p>
+    <span class="ev__more">View details →</span>
+  </div>
+</a>
+
+<style>
+  .ev {
+    display: flex;
+    gap: 20px;
+    background: var(--white);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    transition: transform 0.15s var(--ease), box-shadow 0.15s var(--ease), border-color 0.15s var(--ease);
+    height: 100%;
+  }
+  .ev:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+    border-color: transparent;
+  }
+  .ev__date {
+    flex: none;
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius);
+    background: var(--blue);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+  }
+  .ev__day { font-size: 26px; font-weight: 600; }
+  .ev__month { font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; }
+  .ev__type {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    color: var(--orange); font-weight: 700;
+  }
+  .ev__title {
+    font-size: 19px; font-weight: 500; margin: 8px 0 6px; color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .ev__meta { font-size: 13px; color: var(--grey-400); margin-bottom: 10px; }
+  .ev__summary { font-size: 14.5px; line-height: 1.5; color: var(--ink); margin-bottom: 14px; }
+  .ev__more { font-size: 14px; font-weight: 600; color: var(--blue); }
+</style>

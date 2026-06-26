@@ -1,0 +1,43 @@
+---
+import type { Member } from '../lib/types';
+interface Props { members: Member[]; }
+const { members } = Astro.props;
+---
+<div class="wall">
+  {members.map((m) => (
+    <div class="wall__cell" title={m.name}>
+      {m.logo ? <img src={m.logo} alt={m.name} loading="lazy" /> : <span>{m.name}</span>}
+    </div>
+  ))}
+</div>
+
+<style>
+  .wall {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1px;
+    background: var(--hairline);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .wall__cell {
+    background: var(--white);
+    min-height: 96px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition: background 0.15s var(--ease);
+  }
+  .wall__cell:hover { background: var(--paper); }
+  .wall__cell span {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    color: var(--grey-400);
+  }
+  .wall__cell:hover span { color: var(--blue); }
+  .wall__cell img { max-height: 44px; width: auto; object-fit: contain; filter: grayscale(1); opacity: 0.8; }
+  .wall__cell:hover img { filter: none; opacity: 1; }
+</style>

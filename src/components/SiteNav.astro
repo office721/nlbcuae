@@ -108,6 +108,7 @@ const current = Astro.url.pathname.replace(/\/$/, '');
     align-items: center;
     justify-content: center;
   }
+  .mobile[hidden] { display: none; }
   .mobile nav { display: flex; flex-direction: column; gap: 8px; text-align: center; }
   .mobile__link { color: #fff; font-size: 28px; font-weight: 500; padding: 10px; }
   .mobile__link:hover { color: var(--orange); }

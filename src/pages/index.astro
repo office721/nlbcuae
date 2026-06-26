@@ -1,13 +1,125 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Container from '../components/Container.astro';
-// NOTE: temporary shell — full homepage sections land in Task 5.
+import SectionHeading from '../components/SectionHeading.astro';
+import Button from '../components/Button.astro';
+import Hero from '../components/Hero.astro';
+import PillarCard from '../components/PillarCard.astro';
+import EventCard from '../components/EventCard.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import MembershipCTA from '../components/MembershipCTA.astro';
+import MemberLogoWall from '../components/MemberLogoWall.astro';
+import NewsletterSignup from '../components/NewsletterSignup.astro';
+import { href } from '../lib/url';
+import { getPillars } from '../lib/pillars';
+import { getUpcomingEvents } from '../lib/events';
+import { getRecentArticles } from '../lib/articles';
+import { getCorporateMembers } from '../lib/members';
+import { MEMBER_COUNT } from '../lib/members';
+
+const pillars = await getPillars();
+const events = await getUpcomingEvents(3);
+const articles = await getRecentArticles(3);
+const members = await getCorporateMembers();
 ---
-<BaseLayout navMode="solid">
-  <Container>
-    <div style="padding: 80px 0;">
-      <h1>NBC shell</h1>
-      <p class="lede">Nav and footer wired. Homepage sections next.</p>
-    </div>
-  </Container>
+<BaseLayout navMode="overlay">
+  <Hero />
+
+  <!-- 02 · What NBC is -->
+  <section class="section">
+    <Container>
+      <SectionHeading
+        eyebrow="Who we are"
+        title='A council connecting <span class="serif">two business cultures.</span>'
+      />
+      <p class="section__lede">
+        The Netherlands Business Council UAE is a non-profit, member-led organisation. Since 1997
+        we've made doing business between the Netherlands and the UAE easier — for our members and
+        the wider Dutch business community. Everything we do tests against four pillars.
+      </p>
+      <div class="pillars">
+        {pillars.map((p) => <PillarCard pillar={p} />)}
+      </div>
+    </Container>
+  </section>
+
+  <!-- 03 · Upcoming events -->
+  <section class="section section--alt">
+    <Container>
+      <div class="section__head">
+        <SectionHeading eyebrow="What's on" title="Upcoming events" />
+        <Button href={href('/events')} variant="ghost">All events →</Button>
+      </div>
+      <div class="ev-grid">
+        {events.map((e) => <EventCard event={e} />)}
+      </div>
+    </Container>
+  </section>
+
+  <!-- 04 · Membership -->
+  <MembershipCTA />
+
+  <!-- 05 · Member directory teaser -->
+  <section class="section">
+    <Container>
+      <div class="directory">
+        <div>
+          <SectionHeading eyebrow="The community" title={`${MEMBER_COUNT} members and growing`} />
+          <p class="section__lede">
+            Recognised Dutch companies — Shell, KLM, ING, Philips, Boskalis, FrieslandCampina —
+            alongside hundreds of SMEs and startups building their UAE presence.
+          </p>
+          <Button href={href('/membership')} variant="ghost">Explore membership →</Button>
+        </div>
+      </div>
+      <div class="wall-wrap">
+        <MemberLogoWall members={members} />
+      </div>
+    </Container>
+  </section>
+
+  <!-- 06 · Latest news -->
+  <section class="section section--alt">
+    <Container>
+      <div class="section__head">
+        <SectionHeading eyebrow="News & insight" title="Latest from the council" />
+        <Button href={href('/news')} variant="ghost">All news →</Button>
+      </div>
+      <div class="art-grid">
+        {articles.map((a) => <ArticleCard article={a} />)}
+      </div>
+    </Container>
+  </section>
+
+  <!-- 07 · Newsletter -->
+  <NewsletterSignup />
 </BaseLayout>
+
+<style>
+  .section { padding: clamp(64px, 9vw, 110px) 0; }
+  .section--alt { background: var(--paper); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+  .section__lede {
+    font-size: clamp(17px, 1.8vw, 20px); line-height: 1.5; color: var(--ink);
+    max-width: 640px; margin: 24px 0 0;
+  }
+  .section__head {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    gap: 24px; margin-bottom: 40px; flex-wrap: wrap;
+  }
+  .pillars {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 32px; margin-top: 56px;
+  }
+  .ev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .art-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .directory { margin-bottom: 40px; }
+  .wall-wrap { margin-top: 8px; }
+
+  @media (max-width: 980px) {
+    .pillars { grid-template-columns: repeat(2, 1fr); gap: 28px; }
+    .ev-grid, .art-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 560px) {
+    .pillars { grid-template-columns: 1fr; }
+  }
+</style>

@@ -1,0 +1,56 @@
+---
+import type { Article } from '../lib/types';
+import { href } from '../lib/url';
+interface Props { article: Article; }
+const { article } = Astro.props;
+const date = new Date(article.publishedAt).toLocaleDateString('en-GB', {
+  day: 'numeric', month: 'long', year: 'numeric',
+});
+// Deterministic accent so cards differ without needing photos.
+const accents = ['var(--blue)', 'var(--orange)', 'var(--blue-deep)', 'var(--red)'];
+const accent = accents[article.slug.length % accents.length];
+---
+<a href={href(`/news/${article.slug}`)} class="art">
+  <div class="art__thumb" style={`--accent: ${accent}`}>
+    <span class="art__cat">{article.category}</span>
+  </div>
+  <div class="art__body">
+    <p class="art__date">{date}</p>
+    <h3 class="art__title">{article.title}</h3>
+    <p class="art__excerpt">{article.excerpt}</p>
+    <span class="art__more">Read article →</span>
+  </div>
+</a>
+
+<style>
+  .art {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: transform 0.15s var(--ease), box-shadow 0.15s var(--ease);
+    height: 100%;
+  }
+  .art:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+  .art__thumb {
+    height: 140px;
+    background:
+      radial-gradient(120% 120% at 80% -20%, rgba(255, 255, 255, 0.18), transparent 60%),
+      var(--accent);
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+  }
+  .art__cat {
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase;
+    font-weight: 700; color: #fff; background: rgba(0, 0, 0, 0.18);
+    padding: 5px 10px; border-radius: 99px;
+  }
+  .art__body { padding: 22px; display: flex; flex-direction: column; gap: 8px; }
+  .art__date { font-size: 13px; color: var(--grey-400); }
+  .art__title { font-size: 20px; font-weight: 500; letter-spacing: -0.01em; line-height: 1.2; }
+  .art__excerpt { font-size: 14.5px; line-height: 1.55; color: var(--ink); }
+  .art__more { font-size: 14px; font-weight: 600; color: var(--blue); margin-top: 4px; }
+</style>

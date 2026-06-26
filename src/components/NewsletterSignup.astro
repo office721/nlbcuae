@@ -1,0 +1,61 @@
+---
+import Container from './Container.astro';
+// Phase 2: wire to GlueUp newsletter subscribe. For now posts nowhere
+// destructive — a configurable endpoint with graceful no-op.
+const endpoint = import.meta.env.PUBLIC_NEWSLETTER_ENDPOINT ?? '';
+---
+<section class="news-cta">
+  <Container>
+    <div class="news-cta__inner">
+      <div>
+        <p class="news-cta__eyebrow">Newsletter</p>
+        <h2 class="news-cta__title">The Dutch–UAE business briefing, in your inbox.</h2>
+        <p class="news-cta__text">Events, market insight, and member news. No fluff, a few times a month.</p>
+      </div>
+      <form class="news-cta__form" action={endpoint} method="post" data-stub={endpoint ? undefined : 'true'}>
+        <label class="visually-hidden" for="nl-email">Email address</label>
+        <input id="nl-email" name="email" type="email" required placeholder="you@company.com" />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </Container>
+</section>
+
+<style>
+  .news-cta { padding: clamp(48px, 7vw, 80px) 0; background: var(--paper); border-top: 1px solid var(--hairline); }
+  .news-cta__inner {
+    display: grid; grid-template-columns: 1.2fr 1fr; gap: clamp(28px, 5vw, 56px); align-items: center;
+  }
+  .news-cta__eyebrow {
+    font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--grey-400); font-weight: 600; margin-bottom: 14px;
+  }
+  .news-cta__title { font-size: clamp(24px, 3vw, 34px); letter-spacing: -0.02em; margin-bottom: 10px; }
+  .news-cta__text { color: var(--grey-400); font-size: 16px; }
+  .news-cta__form { display: flex; gap: 10px; }
+  .news-cta__form input {
+    flex: 1; min-width: 0; padding: 14px 16px; font-size: 15px; font-family: var(--font-sans);
+    border: 1px solid var(--grey-200); border-radius: var(--radius); background: #fff; color: var(--ink);
+  }
+  .news-cta__form input:focus-visible { outline: 2px solid var(--blue); border-color: var(--blue); }
+  .news-cta__form button {
+    padding: 14px 22px; font-size: 15px; font-weight: 600; font-family: var(--font-sans);
+    background: var(--blue); color: #fff; border: 0; border-radius: var(--radius); cursor: pointer;
+    transition: background 0.15s var(--ease);
+  }
+  .news-cta__form button:hover { background: var(--blue-deep); }
+  @media (max-width: 720px) { .news-cta__inner { grid-template-columns: 1fr; } }
+</style>
+
+<script>
+  // Stub guard: if no endpoint configured, don't submit — show a friendly note.
+  const form = document.querySelector('.news-cta__form');
+  form?.addEventListener('submit', (e) => {
+    if ((form as HTMLElement).dataset.stub === 'true') {
+      e.preventDefault();
+      const btn = form!.querySelector('button')!;
+      btn.textContent = 'Coming soon ✓';
+      btn.setAttribute('disabled', 'true');
+    }
+  });
+</script>

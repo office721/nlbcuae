@@ -1,0 +1,33 @@
+---
+import type { Pillar } from '../lib/types';
+interface Props { pillar: Pillar; }
+const { pillar } = Astro.props;
+---
+<article class="pillar">
+  <div class="pillar__num serif">{pillar.num}</div>
+  <h3 class="pillar__name">{pillar.name}</h3>
+  <p class="pillar__desc">{pillar.description}</p>
+</article>
+
+<style>
+  .pillar {
+    border-top: 2px solid var(--ink);
+    padding-top: 22px;
+  }
+  .pillar__num {
+    font-size: 22px;
+    color: var(--orange);
+    margin-bottom: 12px;
+  }
+  .pillar__name {
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: 10px;
+  }
+  .pillar__desc {
+    font-size: 15px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+</style>
