@@ -1,0 +1,72 @@
+---
+import '../styles/global.css';
+import SiteNav from '../components/SiteNav.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import { href } from '../lib/url';
+
+interface Props {
+  title?: string;
+  description?: string;
+  navMode?: 'overlay' | 'solid';
+  ogImage?: string;
+}
+const {
+  title = 'Netherlands Business Council UAE',
+  description = 'The Netherlands Business Council UAE connects Dutch enterprise with the United Arab Emirates — events, introductions, and market knowledge since 1997.',
+  navMode = 'solid',
+  ogImage = '/images/og.jpg',
+} = Astro.props;
+const fullTitle = title === 'Netherlands Business Council UAE'
+  ? title
+  : `${title} — NBC UAE`;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href={href('/favicon.svg')} />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={href(ogImage)} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class:list={{ 'has-overlay-nav': navMode === 'overlay' }}>
+    <a href="#main" class="skip-link">Skip to content</a>
+    <SiteNav mode={navMode} />
+    <main id="main">
+      <slot />
+    </main>
+    <SiteFooter />
+
+    <style>
+      .skip-link {
+        position: absolute;
+        left: -999px;
+        top: 8px;
+        z-index: 200;
+        background: var(--blue);
+        color: #fff;
+        padding: 10px 16px;
+        border-radius: var(--radius);
+      }
+      .skip-link:focus { left: 8px; }
+      /* Solid nav is in normal flow visually via fixed positioning; push
+         content down only when the nav is NOT an overlay hero. */
+      body:not(.has-overlay-nav) main { padding-top: 74px; }
+    </style>
+  </body>
+</html>

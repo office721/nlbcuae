@@ -1,0 +1,86 @@
+---
+import Logo from './Logo.astro';
+import Container from './Container.astro';
+import { href } from '../lib/url';
+import { primaryNav, CONTACT } from '../lib/nav';
+const year = 2026;
+---
+<footer class="footer">
+  <Container>
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <Logo variant="horizontal" tone="light" height={38} />
+        <p class="footer__tag">
+          Connecting Dutch enterprise with the UAE since <span class="serif">1997</span>.
+        </p>
+        <div class="footer__social">
+          <a href={CONTACT.linkedin} aria-label="LinkedIn" target="_blank" rel="noopener">LinkedIn</a>
+          <a href={CONTACT.facebook} aria-label="Facebook" target="_blank" rel="noopener">Facebook</a>
+          <a href={CONTACT.instagram} aria-label="Instagram" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__label">Explore</div>
+        {primaryNav.map((item) => (
+          <a href={href(item.path)} class="footer__link">{item.label}</a>
+        ))}
+      </div>
+
+      <div class="footer__col">
+        <div class="footer__label">Contact</div>
+        <a href={`mailto:${CONTACT.email}`} class="footer__link">{CONTACT.email}</a>
+        <a href={`tel:${CONTACT.phone.replace(/\s/g, '')}`} class="footer__link">{CONTACT.phone}</a>
+        <p class="footer__addr">{CONTACT.poBox}</p>
+      </div>
+    </div>
+
+    <div class="footer__base">
+      <span>© {year} Netherlands Business Council UAE. A non-profit member organisation.</span>
+      <span>Licensed under Dubai Chamber of Commerce &amp; Industry.</span>
+    </div>
+  </Container>
+</footer>
+
+<style>
+  .footer {
+    background: var(--blue);
+    color: #fff;
+    padding: clamp(56px, 8vw, 80px) 0 40px;
+  }
+  .footer__grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr;
+    gap: clamp(32px, 5vw, 64px);
+  }
+  .footer__tag { color: rgba(255, 255, 255, 0.82); margin-top: 20px; max-width: 320px; }
+  .footer__tag .serif { color: var(--orange); }
+  .footer__social { display: flex; gap: 18px; margin-top: 22px; }
+  .footer__social a { color: var(--orange); font-size: 14px; font-weight: 500; }
+  .footer__social a:hover { color: #fff; }
+
+  .footer__col { display: flex; flex-direction: column; gap: 12px; }
+  .footer__label {
+    font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.6); font-weight: 600; margin-bottom: 6px;
+  }
+  .footer__link { color: #fff; font-size: 15px; opacity: 0.9; }
+  .footer__link:hover { color: var(--orange); opacity: 1; }
+  .footer__addr { color: rgba(255, 255, 255, 0.75); font-size: 15px; }
+
+  .footer__base {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: clamp(40px, 6vw, 64px);
+    padding-top: 28px;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  @media (max-width: 760px) {
+    .footer__grid { grid-template-columns: 1fr; }
+  }
+</style>
