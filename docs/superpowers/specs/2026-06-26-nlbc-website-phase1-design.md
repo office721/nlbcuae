@@ -72,7 +72,9 @@ superlatives. Copy uses real numbers and names.
 - **Fonts:** Geist + Instrument Serif via Google Fonts (`<link>` preconnect), with a local
   fallback stack.
 - **Language:** TypeScript for the data layer and component props.
-- **Hosting:** Static deploy to Netlify or Vercel (decide at deploy time). GitHub Pages possible.
+- **Hosting:** **GitHub Pages** for now (migrate later). Requires `site` + `base` config in
+  `astro.config.mjs` for project-pages path (`office721.github.io/nlbcuae`), or a custom domain
+  via `CNAME`. A GitHub Actions workflow builds and deploys on push to `main`.
 
 ### Project structure
 ```
@@ -101,10 +103,11 @@ public/            # favicon, static images, robots.txt
 
 Core pages (all in Phase 1):
 - **Home** (`/`)
-- **About** (`/about`) — who we are, history (1997), mission/vision, board & team
+- **About** (`/about`) — who we are, history (1997), mission/vision, pillars, partners
+- **Board** (`/board`) — the real current NBC board members (pulled from the existing site)
 - **Events** (`/events`) — upcoming + past listing  *(◆ GlueUp later)*
 - **Event detail** (`/events/[slug]`)  *(◆ GlueUp later)*
-- **Membership** (`/membership`) — why join, tiers/benefits, become a member
+- **Become a Member** (`/membership`) — full membership details: why join, benefits, tiers, how to join
 - **News** (`/news`) — article listing
 - **Article detail** (`/news/[slug]`)
 - **Contact** (`/contact`) — details, map, form
@@ -136,9 +139,14 @@ trade shows.
 
 ### 5.2 About
 Editorial "calm" style. History anchored on 1997; mission & vision (from brand book, corrected);
-four pillars expanded; board & team grid (placeholder people until real data); partners
-(Consul General, Dubai Chambers). Pull quote: "We connect people and knowledge between two
-business cultures."
+four pillars expanded; partners (Consul General, Dubai Chambers). Pull quote: "We connect people
+and knowledge between two business cultures." Links to the Board page.
+
+### 5.2a Board
+Dedicated page for the NBC board members. Uses the **real current board members** pulled from the
+existing site (https://www.nlbcuae.com/board-and-team) — names, roles, companies, and photos where
+available. Card/grid layout in the calm editorial style; short bios. (If specific data can't be
+scraped cleanly, those fields are clearly flagged as placeholders for Neil to supply.)
 
 ### 5.3 Events (list) + Event detail
 - **List:** upcoming (default) + past toggle; event cards (date chip, title, location, type tag,
@@ -146,9 +154,12 @@ business cultures."
 - **Detail:** hero with title/date/location; description; speakers; venue; "Register" CTA that
   hands off to GlueUp's registration URL.
 
-### 5.4 Membership
-Why join (benefits in plain language, mapped to pillars); who it's for; tiers/levels (placeholder
-until confirmed); strong conversion CTA. Application handoff to GlueUp later.
+### 5.4 Become a Member (`/membership`)
+The dedicated membership-details page (the current site's "Become a Member"). Full content:
+why join (benefits in plain language, mapped to the four pillars); who it's for (corporates, SMEs,
+startups, individuals with NL ties); membership **tiers/levels** with what each includes
+(placeholder tiers, clearly flagged, until Neil confirms); how to join (steps); and a strong
+conversion CTA. Application submission hands off to GlueUp in Phase 2.
 
 ### 5.5 News (list) + Article detail
 - **List:** editorial card grid, date, category, excerpt.
@@ -156,8 +167,10 @@ until confirmed); strong conversion CTA. Application handoff to GlueUp later.
   articles.
 
 ### 5.6 Contact
-Address (P.O. Box 75343, Dubai), email, phone, social; embedded map; contact form (posts to a
-form endpoint / GlueUp later — Phase 1 may stub submission).
+Address (P.O. Box 75343, Dubai), email, phone, social; embedded map; contact form. Because
+GitHub Pages is static (no backend), the form **POSTs to a configurable form endpoint**
+(`PUBLIC_CONTACT_FORM_ENDPOINT`, e.g. a free Formspree form), with a graceful **`mailto:`
+fallback** to office@nlbcuae.com if no endpoint is configured. Swappable to GlueUp later.
 
 ---
 
@@ -216,11 +229,13 @@ Phase 3 secondary pages. Designed-for but not built.
 
 ---
 
-## 10. Open questions (non-blocking; can default)
-1. Real hero photography — use stock (Dubai skyline / networking) as placeholder until NBC
-   supplies brand photos? **Default: yes, stock placeholders.**
-2. Membership tiers/pricing — exact levels? **Default: placeholder tiers, clearly marked.**
-3. Board & team real names/photos — **Default: placeholders.**
-4. Deploy target — Netlify vs Vercel vs GitHub Pages. **Default: decide at deploy.**
-5. Contact form handling in Phase 1 — stub vs a real form service (e.g. Formspree)?
-   **Default: stub + TODO.**
+## 10. Decisions (resolved with Neil)
+1. **Hero photography** — use stock (Dubai skyline / networking) as placeholders until NBC supplies
+   brand photos. ✓
+2. **Membership tiers/pricing** — placeholder tiers, clearly flagged, on the Become a Member page
+   until Neil confirms real levels. ✓
+3. **Board members** — use the **real current board** pulled from the existing site; flag any field
+   that can't be cleanly sourced. ✓
+4. **Hosting** — **GitHub Pages** for now (Actions deploy on push to `main`); migrate later. ✓
+5. **Contact form** — POST to a configurable form endpoint (Formspree-compatible) with a `mailto:`
+   fallback to office@nlbcuae.com; swap to GlueUp later. ✓ (my call)
