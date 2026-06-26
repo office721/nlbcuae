@@ -64,6 +64,17 @@ const img = href(image);
     color: var(--on-dark-soft);
     max-width: 560px;
   }
+  @media (prefers-reduced-motion: no-preference) {
+    .phero__eyebrow,
+    .phero__title,
+    .phero__lede { animation: pheroIn 0.8s var(--ease) both; }
+    .phero__title { animation-delay: 0.08s; }
+    .phero__lede { animation-delay: 0.18s; }
+  }
+  @keyframes pheroIn {
+    from { opacity: 0; transform: translateY(22px); }
+    to { opacity: 1; transform: none; }
+  }
   @media (max-width: 600px) {
     .phero__eyebrow { margin-bottom: 12px; }
     .phero__lede { font-size: 16px; }

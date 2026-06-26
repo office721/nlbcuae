@@ -68,5 +68,52 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
          content down only when the nav is NOT an overlay hero. */
       body:not(.has-overlay-nav) main { padding-top: 74px; }
     </style>
+
+    <script>
+      // Reveal-on-scroll. Skips entirely when the user prefers reduced motion.
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!reduce) {
+        document.documentElement.classList.add('js');
+        const groupSel = '.pillars, .why__grid, .tiers__grid, .say__grid, .how__list, .grid, .split__grid';
+        const blockSel =
+          '.sh, .pe__row, .ev-grid, .art-grid, .wall, .mcta__grid, .who__photo, .join-cta__inner, .news-cta__inner, .contact__formwrap';
+        const items: HTMLElement[] = [];
+        document.querySelectorAll(blockSel).forEach((el) => items.push(el as HTMLElement));
+        document.querySelectorAll(groupSel).forEach((group) => {
+          Array.from(group.children).forEach((child, i) => {
+            (child as HTMLElement).style.setProperty('--reveal-delay', `${Math.min(i, 6) * 70}ms`);
+            items.push(child as HTMLElement);
+          });
+        });
+        items.forEach((el) => el.classList.add('reveal'));
+
+        const reveal = () => {
+          const vh = window.innerHeight;
+          let remaining = 0;
+          for (const el of items) {
+            if (el.classList.contains('is-visible')) continue;
+            const r = el.getBoundingClientRect();
+            if (r.top < vh * 0.92 && r.bottom > 0) el.classList.add('is-visible');
+            else remaining++;
+          }
+          if (remaining === 0) {
+            window.removeEventListener('scroll', onScroll);
+            window.removeEventListener('resize', reveal);
+          }
+        };
+        let ticking = false;
+        const onScroll = () => {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(() => {
+            reveal();
+            ticking = false;
+          });
+        };
+        reveal();
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', reveal);
+      }
+    </script>
   </body>
 </html>

@@ -65,7 +65,21 @@ const current = Astro.url.pathname.replace(/\/$/, '');
   .nav--solid :global(.navlogo--dark),
   .nav--overlay.is-scrolled :global(.navlogo--dark) { display: block; }
   .nav__links { display: flex; gap: clamp(16px, 2vw, 30px); }
-  .nav__link { font-size: 14.5px; font-weight: 500; }
+  .nav__link { font-size: 14.5px; font-weight: 500; position: relative; }
+  .nav__link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    height: 2px;
+    background: var(--orange);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s var(--ease);
+  }
+  .nav__link:hover::after,
+  .nav__link[aria-current='page']::after { transform: scaleX(1); }
   .nav__cta {
     background: var(--orange);
     color: var(--ink);
