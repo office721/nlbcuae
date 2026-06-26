@@ -1,12 +1,13 @@
 ---
 import type { Member } from '../lib/types';
+import { href } from '../lib/url';
 interface Props { members: Member[]; }
 const { members } = Astro.props;
 ---
 <div class="wall">
   {members.map((m) => (
     <div class="wall__cell" title={m.name}>
-      {m.logo ? <img src={m.logo} alt={m.name} loading="lazy" /> : <span>{m.name}</span>}
+      {m.logo ? <img src={href(m.logo)} alt={`${m.name} logo`} loading="lazy" /> : <span>{m.name}</span>}
     </div>
   ))}
 </div>

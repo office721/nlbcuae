@@ -2,28 +2,26 @@ import type { Member } from '../types';
 
 /**
  * NBC corporate members (real list provided by NBC).
- * `name` is the display name; `legal` is the full registered name.
- *
- * To add a real logo: drop an image at `public/images/members/<slug>.png`
- * (or .svg) and set `logo: '/images/members/<slug>.png'` on that member.
- * Until then the wall shows a clean name tile. In Phase 2 the GlueUp member
- * directory can supply logos automatically.
+ * Logos were sourced from each company's own website. The four without a
+ * logo show a clean name tile; drop an image at
+ * `public/images/members/<slug>.png|svg` and add a `logo` to fill them in.
+ * In Phase 2 the GlueUp member directory can supply logos automatically.
  */
 export const corporateMembers: Member[] = [
-  { name: 'Air France-KLM' },
-  { name: 'Albwardy Damen' },
+  { name: 'Air France-KLM', logo: '/images/members/air-france-klm.svg' },
+  { name: 'Albwardy Damen', logo: '/images/members/albwardy-damen.png' },
   { name: 'B2L Cargo Care' },
-  { name: 'Boon Edam' },
-  { name: 'Boskalis' },
-  { name: 'Fugro' },
-  { name: 'ING' },
+  { name: 'Boon Edam', logo: '/images/members/boon-edam.svg' },
+  { name: 'Boskalis', logo: '/images/members/boskalis.svg' },
+  { name: 'Fugro', logo: '/images/members/fugro.svg' },
+  { name: 'ING', logo: '/images/members/ing.svg' },
   { name: 'N-SEA' },
-  { name: 'Perfetti Van Melle' },
+  { name: 'Perfetti Van Melle', logo: '/images/members/perfetti-van-melle.png' },
   { name: 'Recovery Advisers' },
-  { name: 'Royal IHC' },
-  { name: 'Semansys Technologies' },
+  { name: 'Royal IHC', logo: '/images/members/royal-ihc.png' },
+  { name: 'Semansys Technologies', logo: '/images/members/semansys.svg' },
   { name: 'Star Energy Resources' },
-  { name: 'TenCate Thiolon' },
+  { name: 'TenCate Thiolon', logo: '/images/members/tencate-thiolon.webp' },
   { name: 'UAE Cargocare' },
-  { name: 'Van Oord' },
+  { name: 'Van Oord', logo: '/images/members/van-oord.svg' },
 ];
