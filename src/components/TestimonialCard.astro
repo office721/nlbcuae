@@ -1,0 +1,55 @@
+---
+import type { Testimonial } from '../lib/types';
+interface Props { item: Testimonial; }
+const { item } = Astro.props;
+const initials = item.name.split(' ').map((n) => n[0]).slice(0, 2).join('');
+---
+<figure class="t">
+  <blockquote class="t__quote">{item.quote}</blockquote>
+  <figcaption class="t__by">
+    <span class="t__avatar">{initials}</span>
+    <span class="t__meta">
+      <span class="t__name">{item.name}</span>
+      <span class="t__role">{item.title}, {item.company}</span>
+    </span>
+  </figcaption>
+</figure>
+
+<style>
+  .t {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    background: var(--white);
+    border: 1px solid var(--hairline);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    height: 100%;
+  }
+  .t__quote {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    margin: 0;
+    position: relative;
+  }
+  .t__quote::before {
+    content: '\201C';
+    display: block;
+    font-size: 48px;
+    line-height: 0.4;
+    color: var(--orange);
+    margin-bottom: 14px;
+    font-weight: 700;
+  }
+  .t__by { display: flex; align-items: center; gap: 14px; margin-top: auto; }
+  .t__avatar {
+    flex: none; width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--blue), var(--blue-deep));
+    color: #fff; font-size: 15px; font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .t__meta { display: flex; flex-direction: column; }
+  .t__name { font-size: 15px; font-weight: 600; color: var(--ink); }
+  .t__role { font-size: 13px; color: var(--grey-400); }
+</style>

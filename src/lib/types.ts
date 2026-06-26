@@ -48,3 +48,20 @@ export interface BoardMember {
   photo?: string;
   bio?: string;
 }
+
+export interface Testimonial {
+  quote: string;
+  name: string;
+  /** role or membership type, e.g. "Corporate Member" */
+  title: string;
+  company: string;
+}
+
+export interface MembershipTier {
+  name: string;
+  price: string;
+  per: string;
+  who: string;
+  applyUrl: string;
+  featured?: boolean;
+}

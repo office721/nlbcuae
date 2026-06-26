@@ -1,5 +1,6 @@
 ---
 import type { BoardMember } from '../lib/types';
+import { href } from '../lib/url';
 interface Props { member: BoardMember; }
 const { member } = Astro.props;
 const initials = member.name
@@ -11,7 +12,7 @@ const initials = member.name
 <article class="bm">
   <div class="bm__photo">
     {member.photo
-      ? <img src={member.photo} alt={member.name} loading="lazy" />
+      ? <img src={href(member.photo)} alt={member.name} loading="lazy" />
       : <span class="bm__initials">{initials}</span>}
   </div>
   <h3 class="bm__name">{member.name}</h3>

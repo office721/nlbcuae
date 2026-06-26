@@ -4,8 +4,14 @@ import Container from '../components/Container.astro';
 import PageHeader from '../components/PageHeader.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import Button from '../components/Button.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
 import { href } from '../lib/url';
 import { MEMBER_COUNT } from '../lib/members';
+import { getMembershipTiers } from '../lib/membership';
+import { getTestimonials } from '../lib/testimonials';
+
+const tiers = await getMembershipTiers();
+const testimonials = await getTestimonials();
 
 const benefits = [
   { title: 'The right introductions', body: 'Meet founders, country heads, and managers who already do business in the UAE.' },
@@ -16,19 +22,13 @@ const benefits = [
   { title: 'Visibility', body: 'A place in our member directory and the chance to be featured across our channels.' },
 ];
 
-const tiers = [
-  { name: 'Individual', who: 'For professionals with a Netherlands connection.', flag: true },
-  { name: 'SME & Startup', who: 'For small and growing companies building a UAE presence.', flag: true },
-  { name: 'Corporate', who: 'For established companies that want a full seat at the table.', flag: true },
-];
-
 const steps = [
-  { n: '01', t: 'Get in touch', d: 'Tell us about your company and what you are looking for.' },
-  { n: '02', t: 'Choose your level', d: 'We help you pick the membership that fits.' },
+  { n: '01', t: 'Choose your membership', d: 'Pick the level that fits you or your company from the options above.' },
+  { n: '02', t: 'Apply online', d: 'Complete the short application. We review and confirm your membership.' },
   { n: '03', t: 'Join the community', d: 'Get your welcome, your directory listing, and your first invitations.' },
 ];
 ---
-<BaseLayout title="Become a Member" description="Join 170+ Dutch businesses already in the UAE. Membership gives you introductions, events, market knowledge, and a stronger voice.">
+<BaseLayout title="Become a Member" description="Join 170+ Dutch businesses in the UAE. Five membership levels from AED 1,000 a year. Introductions, events, market knowledge, and a stronger voice.">
   <PageHeader
     eyebrow="Membership"
     title='Join the room where Dutch business <span class="serif">happens.</span>'
@@ -51,17 +51,16 @@ const steps = [
 
   <section class="tiers">
     <Container>
-      <SectionHeading eyebrow="Who it is for" title="Membership levels" />
-      <p class="tiers__note">
-        Final levels and pricing are confirmed with the office. The list below shows the kinds of
-        membership available today.
-      </p>
+      <SectionHeading eyebrow="Choose your level" title="Membership levels" />
+      <p class="tiers__note">Annual membership. Choose the level that fits, then apply online.</p>
       <div class="tiers__grid">
         {tiers.map((t) => (
-          <article class="tier">
+          <article class={`tier${t.featured ? ' tier--featured' : ''}`}>
+            {t.featured && <span class="tier__badge">Most popular</span>}
             <h3 class="tier__name">{t.name}</h3>
+            <p class="tier__price">{t.price} <span>{t.per}</span></p>
             <p class="tier__who">{t.who}</p>
-            {t.flag && <span class="tier__flag">Details to be confirmed</span>}
+            <a class="tier__apply" href={t.applyUrl} target="_blank" rel="noopener">Apply →</a>
           </article>
         ))}
       </div>
@@ -85,11 +84,20 @@ const steps = [
     </Container>
   </section>
 
+  <section class="say">
+    <Container>
+      <SectionHeading eyebrow="What our members say" title="In their own words" />
+      <div class="say__grid">
+        {testimonials.map((item) => <TestimonialCard item={item} />)}
+      </div>
+    </Container>
+  </section>
+
   <section class="join-cta">
     <Container>
       <div class="join-cta__inner">
         <h2 class="join-cta__title">Ready to join?</h2>
-        <p class="join-cta__text">Tell us about your company and we will guide you through the rest.</p>
+        <p class="join-cta__text">Pick your level above, or get in touch and we will guide you through it.</p>
         <Button href={href('/contact')} variant="primary">Get in touch →</Button>
       </div>
     </Container>
@@ -104,12 +112,17 @@ const steps = [
   .benefit__body { font-size: 15px; line-height: 1.55; color: var(--ink); }
 
   .tiers { padding: clamp(48px, 7vw, 90px) 0; background: var(--paper); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
-  .tiers__note { margin: 20px 0 40px; color: var(--grey-400); font-size: 15px; max-width: 560px; }
-  .tiers__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  .tier { background: var(--white); border: 1px solid var(--hairline); border-radius: var(--radius-lg); padding: 32px; }
-  .tier__name { font-size: 24px; margin-bottom: 10px; }
-  .tier__who { font-size: 15px; color: var(--ink); margin-bottom: 18px; }
-  .tier__flag { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey-400); font-weight: 600; }
+  .tiers__note { margin: 18px 0 40px; color: var(--grey-400); font-size: 15px; }
+  .tiers__grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .tier { position: relative; background: var(--white); border: 1px solid var(--hairline); border-radius: var(--radius-lg); padding: 28px 22px; display: flex; flex-direction: column; }
+  .tier--featured { border-color: var(--orange); border-width: 2px; box-shadow: var(--shadow); }
+  .tier__badge { position: absolute; top: -11px; left: 22px; background: var(--orange); color: var(--ink); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; padding: 4px 10px; border-radius: 99px; }
+  .tier__name { font-size: 20px; margin-bottom: 8px; }
+  .tier__price { font-size: 22px; font-weight: 600; color: var(--blue); margin-bottom: 16px; }
+  .tier__price span { font-size: 13px; font-weight: 400; color: var(--grey-400); }
+  .tier__who { font-size: 14px; line-height: 1.5; color: var(--ink); margin-bottom: 22px; flex: 1; }
+  .tier__apply { font-weight: 600; font-size: 15px; color: var(--blue); }
+  .tier__apply:hover { color: var(--orange); }
 
   .how { padding: clamp(48px, 7vw, 90px) 0; }
   .how__list { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 44px; }
@@ -118,12 +131,17 @@ const steps = [
   .step__t { font-size: 19px; font-weight: 500; margin-bottom: 8px; }
   .step__d { font-size: 15px; line-height: 1.55; color: var(--ink); }
 
-  .join-cta { padding: 0 0 clamp(56px, 8vw, 100px); }
+  .say { padding: clamp(48px, 7vw, 90px) 0; background: var(--paper); border-top: 1px solid var(--hairline); }
+  .say__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 44px; }
+
+  .join-cta { padding: clamp(56px, 8vw, 100px) 0; }
   .join-cta__inner { background: var(--blue); color: #fff; border-radius: var(--radius-xl); padding: clamp(40px, 6vw, 72px); text-align: center; }
   .join-cta__title { color: #fff; margin-bottom: 12px; }
   .join-cta__text { color: rgba(255,255,255,.85); margin: 0 auto 28px; max-width: 460px; }
 
+  @media (max-width: 1000px) { .tiers__grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 900px) {
-    .why__grid, .tiers__grid, .how__list { grid-template-columns: 1fr; }
+    .why__grid, .how__list, .say__grid { grid-template-columns: 1fr; }
   }
+  @media (max-width: 560px) { .tiers__grid { grid-template-columns: 1fr; } }
 </style>
