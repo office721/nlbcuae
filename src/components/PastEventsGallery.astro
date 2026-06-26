@@ -81,6 +81,11 @@ const events = typeof limit === 'number' ? all.slice(0, limit) : all;
   .pe__p { font-size: 15.5px; line-height: 1.6; color: var(--ink); max-width: 46ch; }
   .pe__p + .pe__p { margin-top: 12px; }
 
+  /* Alternate sides for visual variance */
+  .pe__row:nth-child(even) { grid-template-columns: 1.15fr 0.85fr; }
+  .pe__row:nth-child(even) .pe__text { order: 2; }
+  .pe__row:nth-child(even) .pe__strip { order: 1; }
+
   .pe__strip {
     list-style: none;
     display: flex;
@@ -135,13 +140,21 @@ const events = typeof limit === 'number' ? all.slice(0, limit) : all;
   .lb__next { margin-left: clamp(8px, 2vw, 24px); }
 
   @media (max-width: 860px) {
-    .pe__row { grid-template-columns: 1fr; gap: 20px; }
+    /* Stack to one column and keep text above photos regardless of side */
+    .pe__row,
+    .pe__row:nth-child(even) { grid-template-columns: 1fr; gap: 18px; }
+    .pe__row:nth-child(even) .pe__text { order: 0; }
+    .pe__row:nth-child(even) .pe__strip { order: 0; }
   }
   @media (max-width: 600px) {
     .pe { padding: 44px 0; }
-    .pe__rows { gap: 36px; margin-top: 28px; }
-    .pe__title { font-size: 20px; margin-bottom: 12px; }
+    .pe__rows { gap: 40px; margin-top: 28px; }
+    .pe__meta { margin-bottom: 10px; }
+    .pe__title { font-size: 20px; margin-bottom: 10px; }
     .pe__p { font-size: 15px; }
+    .pe__p + .pe__p { margin-top: 10px; }
+    /* Bigger, more immersive photos on phones */
+    .gallery__thumb { width: 70vw; }
     .lb__nav { width: 42px; height: 42px; }
     .lb { padding: 12px; }
   }

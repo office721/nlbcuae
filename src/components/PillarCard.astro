@@ -1,10 +1,26 @@
 ---
 import type { Pillar } from '../lib/types';
-interface Props { pillar: Pillar; }
-const { pillar } = Astro.props;
+interface Props { pillar: Pillar; tone?: 'light' | 'dark'; }
+const { pillar, tone = 'light' } = Astro.props;
+
+// Simple line icons keyed by pillar name.
+const icons: Record<string, string> = {
+  Connection:
+    '<circle cx="6" cy="6" r="2.3"/><circle cx="18" cy="6" r="2.3"/><circle cx="12" cy="18" r="2.3"/><path d="M8 6.6 10.8 15.6M16 6.6 13.2 15.6M8.2 6h7.6"/>',
+  Knowledge:
+    '<path d="M9.5 18.5h5M10.5 21.5h3M12 2.5a6 6 0 0 0-3.6 10.8c.7.6 1.1 1.4 1.1 2.2h5c0-.8.4-1.6 1.1-2.2A6 6 0 0 0 12 2.5Z"/>',
+  Advocacy:
+    '<path d="M3.5 10v4a1 1 0 0 0 1 1h2l9 4.5v-15L6.5 9h-2a1 1 0 0 0-1 1Z"/><path d="M19 8.5a4.5 4.5 0 0 1 0 7"/>',
+  Excellence:
+    '<path d="M12 3l2.6 5.5 6 .8-4.4 4.1 1.1 5.9L12 16.6 6.7 19.3l1.1-5.9L3.4 9.3l6-.8L12 3Z"/>',
+};
+const icon = icons[pillar.name] ?? '';
 ---
-<article class="pillar">
-  <div class="pillar__num serif">{pillar.num}</div>
+<article class:list={['pillar', `pillar--${tone}`]}>
+  <div class="pillar__top">
+    <span class="pillar__num serif">{pillar.num}</span>
+    <span class="pillar__icon" set:html={`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" width="26" height="26" aria-hidden="true">${icon}</svg>`} />
+  </div>
   <h3 class="pillar__name">{pillar.name}</h3>
   <p class="pillar__desc">{pillar.description}</p>
 </article>
@@ -12,22 +28,26 @@ const { pillar } = Astro.props;
 <style>
   .pillar {
     border-top: 2px solid var(--ink);
-    padding-top: 22px;
+    padding-top: 20px;
   }
-  .pillar__num {
-    font-size: 22px;
-    color: var(--orange);
-    margin-bottom: 12px;
+  .pillar__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 14px;
   }
+  .pillar__num { font-size: 22px; color: var(--orange); line-height: 1; }
+  .pillar__icon { color: var(--orange); display: flex; }
   .pillar__name {
     font-size: 24px;
     font-weight: 500;
     letter-spacing: -0.02em;
     margin-bottom: 10px;
   }
-  .pillar__desc {
-    font-size: 15px;
-    line-height: 1.55;
-    color: var(--ink);
-  }
+  .pillar__desc { font-size: 15px; line-height: 1.55; color: var(--ink); }
+
+  /* Dark tone (on the blue section) */
+  .pillar--dark { border-top-color: rgba(255, 255, 255, 0.3); }
+  .pillar--dark .pillar__name { color: #fff; }
+  .pillar--dark .pillar__desc { color: rgba(255, 255, 255, 0.82); }
 </style>

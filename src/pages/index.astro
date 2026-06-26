@@ -31,19 +31,27 @@ const members = await getCorporateMembers();
   <ChairVideo />
 
   <!-- 02 · What NBC is -->
-  <section class="section">
+  <section class="section section--blue">
     <Container>
-      <SectionHeading
-        eyebrow="Who we are"
-        title='A council connecting <span class="serif">two business cultures.</span>'
-      />
-      <p class="section__lede">
-        The Netherlands Business Council UAE is a non-profit, member-led organisation. Since 1997
-        we have made business between the Netherlands and the UAE easier for our members and for
-        the wider Dutch business community. Everything we do rests on four pillars.
-      </p>
+      <div class="who__top">
+        <div class="who__intro">
+          <SectionHeading
+            eyebrow="Who we are"
+            title='A council connecting <span class="serif">two business cultures.</span>'
+            tone="light"
+          />
+          <p class="who__lede">
+            The Netherlands Business Council UAE is a non-profit, member-led organisation. Since
+            1997 we have made business between the Netherlands and the UAE easier for our members
+            and the wider Dutch business community. Everything we do rests on four pillars.
+          </p>
+        </div>
+        <figure class="who__photo">
+          <img src={href('/images/about-networking.jpg')} alt="NBC members networking at an event in Dubai" loading="lazy" width="1500" height="862" />
+        </figure>
+      </div>
       <div class="pillars">
-        {pillars.map((p) => <PillarCard pillar={p} />)}
+        {pillars.map((p) => <PillarCard pillar={p} tone="dark" />)}
       </div>
     </Container>
   </section>
@@ -106,6 +114,34 @@ const members = await getCorporateMembers();
 <style>
   .section { padding: clamp(64px, 9vw, 110px) 0; }
   .section--alt { background: var(--paper); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+  .section--blue { background: var(--blue); color: #fff; }
+  .who__top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(32px, 5vw, 64px);
+    align-items: center;
+  }
+  .who__lede {
+    font-size: clamp(17px, 1.8vw, 20px);
+    line-height: 1.55;
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: 24px;
+    max-width: 520px;
+  }
+  .who__photo { margin: 0; }
+  .who__photo img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+    display: block;
+  }
+  .section--blue .pillars {
+    margin-top: clamp(44px, 6vw, 68px);
+    padding-top: clamp(40px, 5vw, 56px);
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+  }
   .section__lede {
     font-size: clamp(17px, 1.8vw, 20px); line-height: 1.5; color: var(--ink);
     max-width: 640px; margin: 24px 0 0;
@@ -126,6 +162,8 @@ const members = await getCorporateMembers();
   @media (max-width: 980px) {
     .pillars { grid-template-columns: repeat(2, 1fr); gap: 28px; }
     .ev-grid, .art-grid { grid-template-columns: repeat(2, 1fr); }
+    .who__top { grid-template-columns: 1fr; }
+    .who__lede { max-width: none; }
   }
   /* Mobile: swipeable carousels instead of a long vertical scroll */
   @media (max-width: 768px) {
@@ -151,5 +189,7 @@ const members = await getCorporateMembers();
     .pillars { grid-template-columns: 1fr; gap: 16px; margin-top: 30px; }
     .directory { margin-bottom: 28px; }
     .wall-wrap { margin-top: 0; }
+    .who__lede { font-size: 16px; margin-top: 16px; }
+    .section--blue .pillars { margin-top: 26px; padding-top: 26px; }
   }
 </style>

@@ -30,7 +30,8 @@ const { eyebrow, title, align = 'left', tone = 'dark', class: cls = '' } = Astro
     align-items: center;
     gap: 12px;
   }
-  .sh--dark .sh__eyebrow::before {
+  .sh--dark .sh__eyebrow::before,
+  .sh--light .sh__eyebrow::before {
     content: '';
     width: 30px;
     height: 2px;
