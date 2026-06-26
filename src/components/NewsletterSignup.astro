@@ -9,8 +9,8 @@ const endpoint = import.meta.env.PUBLIC_NEWSLETTER_ENDPOINT ?? '';
     <div class="news-cta__inner">
       <div>
         <p class="news-cta__eyebrow">Newsletter</p>
-        <h2 class="news-cta__title">The Dutch–UAE business briefing, in your inbox.</h2>
-        <p class="news-cta__text">Events, market insight, and member news. No fluff, a few times a month.</p>
+        <h2 class="news-cta__title">The Dutch and UAE business briefing, in your inbox.</h2>
+        <p class="news-cta__text">Events, market news, and member updates. A few times a month, no filler.</p>
       </div>
       <form class="news-cta__form" action={endpoint} method="post" data-stub={endpoint ? undefined : 'true'}>
         <label class="visually-hidden" for="nl-email">Email address</label>

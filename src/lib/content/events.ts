@@ -1,9 +1,9 @@
 import type { NbcEvent } from '../types';
 
 /**
- * Placeholder events — realistic, drawn from the current site's calendar.
+ * Placeholder events, based on the current site's calendar.
  * Replaced by the GlueUp events feed in Phase 2.
- * Dates are illustrative; mix of future and past so list pages have content.
+ * Dates are illustrative, with a mix of future and past so list pages have content.
  */
 export const events: NbcEvent[] = [
   {
@@ -16,7 +16,7 @@ export const events: NbcEvent[] = [
     summary:
       'An informal evening of drinks and introductions with Dutch businesses across the Emirates.',
     body:
-      'Join fellow members for our summer networking evening. Drinks, a relaxed setting, and the right people in the room — exactly what NBC does best. Come meet founders, country heads, and managers operating across the UAE.',
+      'Join fellow members for our summer networking evening. Expect drinks, a relaxed setting, and the right people in the room. Come and meet founders, country heads, and managers working across the UAE.',
     registerUrl: 'https://www.nlbcuae.com/events',
     image: '/images/events/networking-drinks.jpg',
   },
@@ -28,9 +28,9 @@ export const events: NbcEvent[] = [
     location: 'Capital Club, Abu Dhabi',
     type: 'Networking',
     summary:
-      'A joint evening with partner business councils — broaden your network beyond the Dutch community.',
+      'A joint evening with partner business councils. A chance to grow your network beyond the Dutch community.',
     body:
-      'NBC partners with fellow European and international business councils for an evening that widens the room. Expect a cross-section of the Abu Dhabi business community and warm, useful introductions.',
+      'NBC joins fellow European and international business councils for an evening that widens the room. You can expect a cross-section of the Abu Dhabi business community and warm, useful introductions.',
     registerUrl: 'https://www.nlbcuae.com/events',
     image: '/images/events/inter-council.jpg',
   },
@@ -42,9 +42,9 @@ export const events: NbcEvent[] = [
     location: 'Dubai Chambers, Dubai',
     type: 'Panel',
     summary:
-      'A working breakfast on doing business in the UAE — practical insight, not theory.',
+      'A working breakfast on doing business in the UAE. Practical advice, not theory.',
     body:
-      'Over coffee, a focused panel shares what actually moves the needle for Dutch companies entering or scaling in the UAE: licensing, hiring, and market entry. Bring questions.',
+      'Over coffee, a focused panel shares what really makes a difference for Dutch companies entering or growing in the UAE. Topics include licensing, hiring, and market entry. Bring your questions.',
     registerUrl: 'https://www.nlbcuae.com/events',
     image: '/images/events/breakfast.jpg',
   },
@@ -56,7 +56,7 @@ export const events: NbcEvent[] = [
     location: 'Jumeirah Emirates Towers, Dubai',
     type: 'Gala',
     summary:
-      'The highlight of the NBC calendar — a black-tie evening celebrating the Dutch–UAE business community.',
+      'The highlight of the NBC calendar. A black-tie evening celebrating the Dutch and UAE business community.',
     body:
       'Our flagship event of the year brings together the full NBC community, the Dutch Consul General, and partners from across the Emirates for an evening of recognition and connection.',
     registerUrl: 'https://www.nlbcuae.com/events',
@@ -69,9 +69,9 @@ export const events: NbcEvent[] = [
     endsAt: '2026-03-12T21:00:00+04:00',
     location: 'Dubai',
     type: 'Networking',
-    summary: 'A community evening bringing members together in support of one another.',
+    summary: 'A community evening that brings members together in support of one another.',
     body:
-      'A warm evening built around the NBC community — connection, support, and conversation among Dutch businesses in the UAE.',
+      'A warm evening built around the NBC community, with connection, support, and good conversation among Dutch businesses in the UAE.',
     registerUrl: 'https://www.nlbcuae.com/events',
     image: '/images/events/together.jpg',
   },
@@ -84,7 +84,7 @@ export const events: NbcEvent[] = [
     type: 'Roundtable',
     summary: 'A closed-door roundtable for companies considering the UAE market.',
     body:
-      'A practical, closed-door session with the Consulate and experienced members on entering the UAE market — structures, pitfalls, and first steps.',
+      'A practical, closed-door session with the Consulate and experienced members on entering the UAE market. We cover company structures, common pitfalls, and first steps.',
     registerUrl: 'https://www.nlbcuae.com/events',
     image: '/images/events/roundtable.jpg',
   },

@@ -1,6 +1,6 @@
 import type { Pillar } from '../types';
 
-/** The four brand pillars — verbatim from nbc_brand_book_MV2.html. */
+/** The four brand pillars. Plain, professional wording. */
 export const pillars: Pillar[] = [
   {
     num: '01',
@@ -12,7 +12,7 @@ export const pillars: Pillar[] = [
     num: '02',
     name: 'Knowledge',
     description:
-      'We share what we know about the UAE market — regulation, opportunity — with members who need it before they hit obstacles.',
+      'We share what we know about the UAE market, from regulation to opportunity, with members who need it before they hit obstacles.',
   },
   {
     num: '03',
@@ -24,6 +24,6 @@ export const pillars: Pillar[] = [
     num: '04',
     name: 'Excellence',
     description:
-      "We hold a high standard for the work our members do, and the work we do for them. Mediocrity does not get NBC's stamp.",
+      'We hold a high standard for the work our members do, and for the work we do for them.',
   },
 ];

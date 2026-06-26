@@ -12,13 +12,13 @@ interface Props {
 }
 const {
   title = 'Netherlands Business Council UAE',
-  description = 'The Netherlands Business Council UAE connects Dutch enterprise with the United Arab Emirates — events, introductions, and market knowledge since 1997.',
+  description = 'The Netherlands Business Council UAE connects Dutch business with the United Arab Emirates. Events, introductions, and market knowledge since 1997.',
   navMode = 'solid',
   ogImage = '/images/og.jpg',
 } = Astro.props;
 const fullTitle = title === 'Netherlands Business Council UAE'
   ? title
-  : `${title} — NBC UAE`;
+  : `${title} | NBC UAE`;
 const canonical = new URL(Astro.url.pathname, Astro.site).href;
 ---
 <!doctype html>
