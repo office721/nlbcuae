@@ -12,7 +12,8 @@ const current = Astro.url.pathname.replace(/\/$/, '');
 ---
 <header class:list={['nav', `nav--${mode}`]} data-mode={mode} id="site-nav">
   <a href={href('/')} class="nav__logo" aria-label="NBC home">
-    <Logo variant="horizontal" tone={mode === 'overlay' ? 'light' : 'dark'} height={34} />
+    <Logo variant="horizontal" tone="light" height={34} class="navlogo navlogo--light" />
+    <Logo variant="horizontal" tone="dark" height={34} class="navlogo navlogo--dark" />
   </a>
 
   <nav class="nav__links" aria-label="Primary">
@@ -55,6 +56,14 @@ const current = Astro.url.pathname.replace(/\/$/, '');
     border-bottom: 1px solid transparent;
   }
   .nav__logo { display: inline-flex; margin-right: auto; }
+  /* Swap logo colour with the nav state so the wordmark stays legible.
+     :global() because the classes live on the child Logo component's svg. */
+  :global(.navlogo) { display: block; }
+  :global(.navlogo--dark) { display: none; }
+  .nav--solid :global(.navlogo--light),
+  .nav--overlay.is-scrolled :global(.navlogo--light) { display: none; }
+  .nav--solid :global(.navlogo--dark),
+  .nav--overlay.is-scrolled :global(.navlogo--dark) { display: block; }
   .nav__links { display: flex; gap: clamp(16px, 2vw, 30px); }
   .nav__link { font-size: 14.5px; font-weight: 500; }
   .nav__cta {
