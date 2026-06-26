@@ -121,7 +121,24 @@ const members = await getCorporateMembers();
 
   @media (max-width: 980px) {
     .pillars { grid-template-columns: repeat(2, 1fr); gap: 28px; }
-    .ev-grid, .art-grid { grid-template-columns: 1fr; }
+    .ev-grid, .art-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  /* Mobile: swipeable carousels instead of a long vertical scroll */
+  @media (max-width: 768px) {
+    .ev-grid, .art-grid {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 16px;
+      padding-bottom: 8px;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+    .ev-grid::-webkit-scrollbar,
+    .art-grid::-webkit-scrollbar { display: none; }
+    /* :global() because the cards live in their own component scope */
+    .ev-grid > :global(.ev),
+    .art-grid > :global(.art) { flex: 0 0 80%; scroll-snap-align: start; }
   }
   @media (max-width: 560px) {
     .pillars { grid-template-columns: 1fr; }
